@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Yılmaz -- Developer -- @edigu
+
+# THANKS
+
+    To the open source PHP community, Symfony & Zend Developers, Github, Git, Homebrew, TotalTerminal and many others..
+
+# TECHNOLOGY COLOPHON
+
+    Zend Framework 2,
+    Doctrine ORM,
+    HTML5, CSS3,
+    jQuery, Modernizr,
+    Bootstrap 3, Less,
+    Git, Github
+    NodeJS, Grunt, Bower

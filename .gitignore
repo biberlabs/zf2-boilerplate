@@ -1,0 +1,34 @@
+# Well known noises
+*~
+._*
+.~lock.*
+.DS_Store
+
+# Editors, IDEs
+nbproject
+.buildpath
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Composer related
+vendor/
+
+# Persistency related
+data/DoctrineORMModule/
+
+# Build automation related
+bower_components/
+node_modules/
+assets/js/generate/*.js
+assets/css/generate/*.css
+public/css/
+public/js/
+public/img/
+public/fonts/
+public/testresults
+public/apple-touch-icon-precomposed.png
+public/crossdomain.xml
+public/favicon.ico
+public/humans.txt
+public/robots.txt

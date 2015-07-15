@@ -1,0 +1,25 @@
+{
+  "name": "Boilerplate",
+  "version": "0.0.1",
+  "authors": [
+    "Yılmaz <@edigu>"
+  ],
+  "description": "ZF2 Boilerplate",
+  "license": "MIT",
+  "homepage": "http://www.boilerplate.local",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "font-awesome": "~4.3.0",
+    "respond": "~1.4.2",
+    "modernizr": "~2.8.3"
+  }
+}
