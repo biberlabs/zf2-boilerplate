@@ -29,7 +29,7 @@ if ($host == 'cli') {
 
 if (in_array($host, $backoffices)) {
     // Load Admin specific modules only..
-    $modules = array_merge($modules, ['Admin']);
+    // $modules = array_merge($modules, ['Admin']); // Admin module initialization
 }
 
 if (APPLICATION_ENV == 'development') {
