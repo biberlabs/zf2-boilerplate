@@ -1,40 +1,90 @@
 <?php
-$modules = array(
+$env = getenv('APPLICATION_ENV');
+if (empty($env)) {
+    $env = 'production'; // Set environment as production if it's not available
+}
+
+// Define as global CONSTANT
+define('APPLICATION_ENV', $env);
+
+/**
+ * Domain names for different application behaviours.
+ * While FRONTEND URI serving public face of your application to end users,
+ * API Uri handles restful requests and ADMIN only exists for
+ * you, administrators and staff.
+ */
+define('APP_URI_FRONTEND', 'www.boilerplate.local');
+define('APP_URI_API',      'api.boilerplate.local');
+define('APP_URI_ADMIN',    'admin.boilerplate.local');
+
+/**
+ * You need to define the domains above in your HTTP server respectively and
+ * each request should be handled by correct server, not randomly.
+ *
+ * Setting correct/separate server names in HTTP level and getting ready to run same
+ * application on multiple pyshical nodes is a good approach from many aspects,
+ * also probably it will be MUST when application is growing & need scaling.
+ *
+ * You also will need to alter this hardcoded domain names in this file
+ * on production/testing/staging environments utilizing sed/awk on build-time.
+ *
+ * Check application.config.php for use case of server name.
+ */
+define('APP_SERVER_NAME',  (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'cli'));
+
+$modules = [
+    // Common modules to load everytime.
+    'common' => [
         'Core',
         'DoctrineModule',
         'DoctrineORMModule',
         'TwbBundle',
-    );
+        ],
+    // Load only on www.* requests
+    APP_URI_FRONTEND => [
+        'Frontend',
+        ],
+    // Load only on api.* requests
+    APP_URI_API => [
+        'Api',
+        ],
+    // Load only on admin.* requests
+    APP_URI_ADMIN => [
+        'Admin',
+        ],
+    // Development purposes only
+    'development' => [
+        'Zf2Whoops',
+        'ZendDeveloperTools',
+        'DoctrineDataFixtureModule',
+        'SanSessionToolbar',
+        'ZfSnapEventDebugger',
+        'ZFTool',
+        ],
+    ];
 
-$devModules = array(
-    'Zf2Whoops',
-    'ZendDeveloperTools',
-    'DoctrineDataFixtureModule',
-    'SanSessionToolbar',
-    'ZfSnapEventDebugger',
-    );
+$configCache   = true;
+$moduleCache   = true;
+$modulesToLoad = $modules['common'];
+$cacheDir      = './data/cache';
 
-$configCache = true;
-$moduleCache = true;
-
-$backoffices = array('admin.boilerplate.local');
-
-$host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'cli'; // Cli?
-
-if ($host == 'cli') {
-    // Disable configuration caching for cli requests!
+if (PHP_SAPI === 'cli') {
+    // Disable configuration caching on CLI requests!
     $configCache = false;
     $moduleCache = false;
+} else {
+    /**
+     * This is important:
+     * Save merged configuration files in separate folders since
+     * application generates different merged configs on different domains.
+     */
+    $cacheDir      = $cacheDir.'/'.explode('.', APP_SERVER_NAME)[0]; // www, api or admin
+    $modulesToLoad = array_merge($modulesToLoad, $modules[APP_SERVER_NAME]);
 }
 
-if (in_array($host, $backoffices)) {
-    // Load Admin specific modules only..
-    // $modules = array_merge($modules, ['Admin']); // Admin module initialization
-}
-
-if (APPLICATION_ENV == 'development') {
+if (APPLICATION_ENV === 'development') {
     // Load extra modules on development environment
-    $modules = array_merge($devModules, $modules);
+    $modulesToLoad = array_merge($modulesToLoad, $modules['development']);
     // Disable configuration and module caching
     $configCache = false;
     $moduleCache = false;
@@ -42,7 +92,7 @@ if (APPLICATION_ENV == 'development') {
 
 // and return the result
 return array(
-    'modules'                 => $modules,
+    'modules'                 => $modulesToLoad,
     'module_listener_options' => array(
         'module_paths'             => array(
             './module',
@@ -53,7 +103,7 @@ return array(
         ),
         'config_cache_enabled'     => $configCache,
         'module_map_cache_enabled' => $moduleCache,
-        'cache_dir'                => './data/cache',
+        'cache_dir'                => $cacheDir,
 
         // Whether or not to enable modules dependency checking.
         // Enabled by default, prevents usage of modules that depend on other modules
