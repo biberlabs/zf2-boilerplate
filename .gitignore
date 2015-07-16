@@ -17,6 +17,9 @@ vendor/
 # Persistency related
 data/DoctrineORMModule/
 
+# Cache Folder
+data/cache/
+
 # Build automation related
 bower_components/
 node_modules/
