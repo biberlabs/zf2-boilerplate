@@ -18,7 +18,8 @@
         "gedmo/doctrine-extensions": "2.4.3",
         "creof/doctrine2-spatial": "dev-master",
         "phpunit/php-code-coverage": "2.1.*",
-        "mathiasverraes/money": "1.3.*@dev"
+        "mathiasverraes/money": "1.3.*@dev",
+        "zendframework/zend-i18n-resources": "^2.5"
     },
 
     "require-dev": {

@@ -46,14 +46,43 @@ return array(
     ),
 
     'translator' => array(
-        'locale'                    => 'en_US',
+        'locale'                    => ['tr', 'en'], // ['current', 'fallback']
         'translation_file_patterns' => array(
+            // Core module, default domain
             array(
-                'type'     => 'gettext',
-                'base_dir' => __DIR__ . '/../language',
-                'pattern'  => '%s.mo',
+                'type'        => 'phpArray',
+                'base_dir'    => __DIR__.'/../language',
+                'pattern'     => '%s.php',
+            ),
+            // Zend captcha
+            array(
+                'type'        => 'phpArray',
+                'base_dir'    => 'vendor/zendframework/zend-i18n-resources/languages',
+                'pattern'     => '%s/Zend_Captcha.php',
+                'text_domain' => 'forms',
+            ),
+            // Form validations
+            array(
+                'type'        => 'phpArray',
+                'base_dir'    => 'vendor/zendframework/zend-i18n-resources/languages',
+                'pattern'     => '%s/Zend_Validate.php',
+                'text_domain' => 'forms',
             ),
         ),
+        'cache' => array(
+            'adapter' => array(
+                // Use APC cache on production
+                'name'    => 'apc',
+                'options' => array(
+                    'namespace' => 'translations',
+                ),
+            ),
+            'plugins' => array(
+                'exception_handler' => array(
+                    'throw_exceptions' => false
+                    )
+                )
+            ),
     ),
     'controllers' => array(
         'invokables' => array(
@@ -140,17 +169,6 @@ return array(
         ),
     ),
 
-    'translator' => array(
-        'locale'                    => 'tr_TR',
-        'translation_file_patterns' => array(
-            array(
-                'type'     => 'gettext',
-                'base_dir' => __DIR__ . '/../language',
-                'pattern'  => '%s.mo',
-            ),
-        ),
-    ),
-
     'caches' => array(
         // Can be called directly via SM in the name of 'core.cache.memcached'
         'core.cache.memcached' => array(
@@ -188,20 +206,6 @@ return array(
                     'throw_exceptions' => false
                     ),
                 ),
-            ),
-
-        'core.cache.translate' => array(
-            'adapter' => array(
-                'name'    => 'apc',
-                'options' => array(
-                    'namespace' => 'translations',
-                ),
-            ),
-            'plugins' => array(
-                'exception_handler' => array(
-                    'throw_exceptions' => false
-                    )
-                )
             ),
 
         'core.cache.session' => array(
