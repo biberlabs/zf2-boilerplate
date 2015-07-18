@@ -38,11 +38,11 @@ $modules = [
         'Core',
         'DoctrineModule',
         'DoctrineORMModule',
-        'TwbBundle',
         ],
     // Load only on www.* requests
     APP_URI_FRONTEND => [
         'Frontend',
+        'TwbBundle',
         ],
     // Load only on api.* requests
     APP_URI_API => [
@@ -51,6 +51,7 @@ $modules = [
     // Load only on admin.* requests
     APP_URI_ADMIN => [
         'Admin',
+        'TwbBundle',
         ],
     // Development purposes only
     'development' => [

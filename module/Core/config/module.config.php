@@ -46,7 +46,7 @@ return array(
     ),
 
     'translator' => array(
-        'locale'                    => ['tr', 'en'], // ['current', 'fallback']
+        'locale'                    => ['en', 'en'], // ['current', 'fallback']
         'translation_file_patterns' => array(
             // Core module, default domain
             array(
