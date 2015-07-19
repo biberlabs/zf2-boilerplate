@@ -20,6 +20,9 @@ data/DoctrineORMModule/
 # Cache Folder
 data/cache/
 
+# Logging
+data/logs/*
+
 # Build automation related
 bower_components/
 node_modules/

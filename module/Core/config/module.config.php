@@ -154,7 +154,7 @@ return array(
                     'name'     => 'stream',
                     'priority' => 1000,
                     'options'  => array(
-                        'stream' => 'data/logs/application.log',
+                        'stream' => 'data/logs/application.'.date('Y.m.d').'.log',
                     ),
                 ),
             ),
