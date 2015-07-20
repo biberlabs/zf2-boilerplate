@@ -21,7 +21,7 @@ data/DoctrineORMModule/
 data/cache/
 
 # Logging
-# data/logs/*
+data/logs/*
 
 # Build automation related
 bower_components/
