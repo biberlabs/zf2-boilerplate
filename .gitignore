@@ -15,13 +15,15 @@ nbproject
 vendor/
 
 # Persistency related
-data/DoctrineORMModule/
+data/DoctrineORMModule/*
+!data/DoctrineORMModule/.gitkeep
 
 # Cache Folder
 data/cache/
 
 # Logging
 data/logs/*
+!data/logs/.gitkeep
 
 # Build automation related
 bower_components/
