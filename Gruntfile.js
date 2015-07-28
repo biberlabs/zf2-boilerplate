@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-    // 1. All configuration goes here 
+    // 1. All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
@@ -11,10 +11,11 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
+                    "assets/css/generate/custom-admin-bootstrap.css": "assets/less/custom-admin-bootstrap.less",
                     "assets/css/generate/custom-bootstrap.css": "assets/less/custom-bootstrap.less",
                     "assets/css/generate/font-awesome.css": "bower_components/font-awesome/less/font-awesome.less",
                     "assets/css/generate/custom-styles.css": "assets/less/custom-styles.less",
-                    "assets/css/generate/admin.css": "assets/less/admin.less"
+                    "assets/css/generate/custom-admin-styles.css": "assets/less/custom-admin-styles.less"
                 }
             }
         },
@@ -39,14 +40,6 @@ module.exports = function(grunt) {
                 dest: 'assets/js/generate/bootstrap.js'
               },
 
-            adminstyles: {
-                src: [
-                  'assets/css/generate/admin.css',
-                  'assets/css/generate/flags.css'
-                ],
-                dest: 'public/css/admin.css'
-              },
-
             styles: {
                 src: [
                   'assets/css/generate/custom-bootstrap.css',
@@ -56,14 +49,31 @@ module.exports = function(grunt) {
                 dest: 'public/css/all.css'
               },
 
+            adminstyles: {
+                src: [
+                  'assets/css/generate/custom-admin-bootstrap.css',
+                  'assets/css/generate/font-awesome.css',
+                  'assets/css/generate/custom-admin-styles.css',
+                ],
+                dest: 'public/css/all.admin.css'
+              },
+
             scripts: {
                 src: [
                   'bower_components/jquery/dist/jquery.js',
-                  'bower_components/nanobar/nanobar.js',
-                  'assets/js/generate/bootstrap.js',
+                  'assets/js/generate/bootstrap.js', // We merged bootstrap manually.
                   'assets/js/scripts.js',
                 ],
                 dest: 'public/js/all.js'
+              },
+
+            adminscripts: {
+                src: [
+                  'bower_components/jquery/dist/jquery.js',
+                  'assets/js/generate/bootstrap.js', // We merged bootstrap manually.
+                  'assets/js/admin/*.js',
+                ],
+                dest: 'public/js/all-admin.js'
               },
 
             nonmodern: {
@@ -83,6 +93,7 @@ module.exports = function(grunt) {
                 },
                 files: {
                     'public/css/all.min.css': ['public/css/all.css'],
+                    'public/css/all.admin.min.css': ['public/css/all.admin.css'],
                 }
             }
         },
@@ -101,6 +112,9 @@ module.exports = function(grunt) {
                         'public/js/all.js',
                         'public/js/modernizr-respond.js'
                         ],
+                    'public/js/all-admin.min.js': [
+                        'public/js/all-admin.js',
+                        ],
                 }
             }
         },
@@ -112,8 +126,7 @@ module.exports = function(grunt) {
                 cwd: 'assets/img/',
                 src: '**',
                 dest: 'public/img/',
-                flatten: true,
-                filter: 'isFile',
+                flatten: false,
             },
 
             fonts: {
@@ -125,15 +138,22 @@ module.exports = function(grunt) {
                 filter: 'isFile',
             },
 
-            staticfiles: {
+            customfonts: {
                 expand: true,
-                cwd: 'assets/public/',
-                src: '**',
-                dest: 'public/',
+                src: 'assets/fonts/**',
+                dest: 'public/fonts/',
                 flatten: true,
                 filter: 'isFile',
+            }
+        },
+
+        // WATCH
+        watch: {
+            scripts: {
+                files: ['assets/less/*.{css,less}', 'assets/js/admin/*.js', 'assets/js/scripts.js'],
+                tasks: ['dev'],
             },
-        }
+        },
 
     });
 
