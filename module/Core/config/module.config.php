@@ -38,10 +38,14 @@ return array(
         ),
         'factories' => array(
             'MvcTranslator' => 'Core\Service\Factory\TranslatorServiceFactory',
+            'core.service.auth' => 'Core\Service\Factory\AuthenticationServiceFactory',
         ),
 
         'aliases' => array(
             'translator' => 'MvcTranslator',
+            // Aliasing the Zend\Authentication\AuthenticationService will allow it to be 
+            // recognised by the ZF2 view helper.
+            'Zend\Authentication\AuthenticationService' => 'core.service.auth',
         ),
     ),
 
@@ -71,6 +75,7 @@ return array(
                 'text_domain' => 'forms',
             ),
         ),
+
         'cache' => array(
             'adapter' => array(
                 // Use APC cache on production
