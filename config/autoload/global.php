@@ -12,5 +12,23 @@
  */
 
 return array(
-    // ...
+    'doctrine' => array(
+        'authentication' => array(
+            'orm_default' => array(
+                'object_manager'      => 'Doctrine\ORM\EntityManager',
+                'identity_class'      => 'Core\Entity\User',
+                'identity_property'   => 'email',
+                'credential_property' => 'password',
+                'credential_callable' => 'Core\Service\RegistrationService::verifyPassword',
+            ),
+        ),
+        
+        // Entity Manager instantiation settings
+        'entitymanager' => array(
+            'orm_default' => array(
+                'connection'    => 'orm_default',
+                'configuration' => 'orm_default',
+            ),
+        ),
+    ),
 );
