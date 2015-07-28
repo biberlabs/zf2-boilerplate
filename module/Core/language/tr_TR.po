@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ZF2 Boilerplate\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-29 00:06+0200\n"
+"PO-Revision-Date: 2015-07-29 00:33+0200\n"
+"Last-Translator: Yilmaz <yilmazsuslu@gmail.com>\n"
+"Language-Team: \n"
+"Language: tr_TR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: translate\n"
+"X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.6.11\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ../..\n"
+"X-Poedit-SearchPathExcluded-0: vendor\n"
+
+#: ../../Admin/src/Admin/Controller/AuthController.php:42
+msgid "Authentication failed. Please check your credentials."
+msgstr "Giriş başarısız. Lütfen email adresi ve parolanızı kontrol edin."
+
+#: ../../Admin/src/Admin/Form/LoginForm.php:30
+msgid "Email address"
+msgstr "E-posta adresi"
+
+#: ../../Admin/src/Admin/Form/LoginForm.php:45
+msgid "Password"
+msgstr "Parola"
+
+#: ../../Admin/src/Admin/Form/LoginForm.php:69
+msgid "I am not a robot"
+msgstr "Ben robot değilim"
+
+#: ../../Admin/src/Admin/Form/LoginForm.php:82
+msgid "Please type the word above"
+msgstr "Lütfen yukarıdaki kelimeyi yazın"
+
+#: ../../Admin/src/Admin/Form/LoginForm.php:96
+msgid "Login"
+msgstr "Giriş Yap"
+
+#: ../../Admin/src/Admin/Form/LoginForm.php:123
+msgid "Minimum password length is 6 characters!"
+msgstr "Şifreniz en az 6 karakterten oluşmalıdır!"
+
+#: ../../Admin/view/admin/auth/login.phtml:1
+msgid "Authorization Required"
+msgstr "Yetki Gerekiyor"
+
+#: ../../Admin/view/admin/auth/login.phtml:6
+msgid ""
+"The page you have requested requires authorization. Please login to "
+"continue.."
+msgstr ""
+"Ulaşmaya çalıştığınız sayfa yetki gerektiriyor. Devam etmek için lütfen "
+"giriş yapın.."
+
+#: ../../Admin/view/error/404.phtml:1 ../../Core/view/error/404.phtml:1
+msgid "A 404 error occurred"
+msgstr "Bir 404 hatası oluştu"
+
+#: ../../Admin/view/error/404.phtml:10 ../../Core/view/error/404.phtml:10
+msgid "The requested controller was unable to dispatch the request."
+msgstr "Talep edilen denetleyici işlemi işlemesi mümkün değildir."
+
+#: ../../Admin/view/error/404.phtml:13 ../../Core/view/error/404.phtml:13
+msgid ""
+"The requested controller could not be mapped to an existing controller class."
+msgstr "Talep edilen denetleyiciye uygun denetleyici sınıfı tahsis edilemedi."
+
+#: ../../Admin/view/error/404.phtml:16 ../../Core/view/error/404.phtml:16
+msgid "The requested controller was not dispatchable."
+msgstr "Talep edilen denetleyici çağrılabilir değildir."
+
+#: ../../Admin/view/error/404.phtml:19 ../../Core/view/error/404.phtml:19
+msgid "The requested URL could not be matched by routing."
+msgstr "İstenen URL yönlendirmede tahsis edilemedi"
+
+#: ../../Admin/view/error/404.phtml:22 ../../Core/view/error/404.phtml:22
+msgid "We cannot determine at this time why a 404 was generated."
+msgstr "Neden 404 hatasının oluştuğunu şu an belirleyemiyoruz."
+
+#: ../../Admin/view/error/404.phtml:34 ../../Core/view/error/404.phtml:34
+msgid "Controller"
+msgstr "Denetleyici"
+
+#: ../../Admin/view/error/404.phtml:41 ../../Core/view/error/404.phtml:41
+#, php-format
+msgid "resolves to %s"
+msgstr "Buraya çözümlenir: %s"
+
+#: ../../Admin/view/error/404.phtml:53 ../../Admin/view/error/index.phtml:8
+#: ../../Core/view/error/404.phtml:53 ../../Core/view/error/index.phtml:8
+msgid "Additional information"
+msgstr "Ek bilgiler"
+
+#: ../../Admin/view/error/404.phtml:56 ../../Admin/view/error/404.phtml:80
+#: ../../Admin/view/error/index.phtml:11 ../../Admin/view/error/index.phtml:35
+#: ../../Core/view/error/404.phtml:56 ../../Core/view/error/404.phtml:80
+#: ../../Core/view/error/index.phtml:11 ../../Core/view/error/index.phtml:35
+msgid "File"
+msgstr "Klasör"
+
+#: ../../Admin/view/error/404.phtml:60 ../../Admin/view/error/404.phtml:84
+#: ../../Admin/view/error/index.phtml:15 ../../Admin/view/error/index.phtml:39
+#: ../../Core/view/error/404.phtml:60 ../../Core/view/error/404.phtml:84
+#: ../../Core/view/error/index.phtml:15 ../../Core/view/error/index.phtml:39
+msgid "Message"
+msgstr "Mesaj"
+
+#: ../../Admin/view/error/404.phtml:64 ../../Admin/view/error/404.phtml:88
+#: ../../Admin/view/error/index.phtml:19 ../../Admin/view/error/index.phtml:43
+#: ../../Core/view/error/404.phtml:64 ../../Core/view/error/404.phtml:88
+#: ../../Core/view/error/index.phtml:19 ../../Core/view/error/index.phtml:43
+msgid "Stack trace"
+msgstr "Denetleyici"
+
+#: ../../Admin/view/error/404.phtml:74 ../../Admin/view/error/index.phtml:29
+#: ../../Core/view/error/404.phtml:74 ../../Core/view/error/index.phtml:29
+msgid "Previous exceptions"
+msgstr "Önceki istisnalar"
+
+#: ../../Admin/view/error/404.phtml:103 ../../Admin/view/error/index.phtml:58
+#: ../../Core/view/error/404.phtml:103 ../../Core/view/error/index.phtml:58
+msgid "No Exception available"
+msgstr "İstisna yok"
+
+#: ../../Admin/view/error/index.phtml:1 ../../Core/view/error/index.phtml:1
+msgid "An error occurred"
+msgstr "An error occurred"
+
+#: ../../Admin/view/partial/header.phtml:49
+msgid "Logout"
+msgstr "Çıkış"
+
+#: ../../Core/view/core/index/index.phtml:2
+msgid "Welcome to ZF2 Boilerplate"
+msgstr "ZF2 Boilerplate uygulamasına hoşgeldiniz"
+
+#: ../../Core/view/core/index/index.phtml:5
+msgid ""
+"Congratulations! You have successfully installed the Custom Boilerplate "
+"Application."
+msgstr ""
+"Tebrikler! Boilerplate uygulamasının kurulumunu başarıyla tamamladınız."
+
+#: ../../Core/view/core/index/index.phtml:8
+#, fuzzy, php-format
+msgid "You are currently running %sZend Framework%s %s"
+msgstr "%sZend Framework 2%s'a hoş geldiniz"
+
+#: ../../Core/view/core/index/index.phtml:12
+#, fuzzy
+msgid "Fork boilerplate on Github"
+msgstr "Zend Framework 2'yi GitHub'da fork edin"
+
+#: ../../Core/view/core/index/index.phtml:28
+msgid "3rd Party Modules: PRODUCTION"
+msgstr "3. Parti Modüller: PRODUCTION"
+
+#: ../../Core/view/core/index/index.phtml:32
+msgid ""
+"The modules and libraries below are default 3rd party dependencies to "
+"improve capablities of the Boilerplate application"
+msgstr ""
+"Aşağıdaki modül ve kütüphaneler Boilerplate uygulamasının çalışabilmek için "
+"ihtiyaç duyduğu 3. parti bağımlılıklardır"
+
+#: ../../Core/view/core/index/index.phtml:50
+msgid "3rd Party Modules: DEVELOPMENT"
+msgstr "3. Parti Modüller: DEVELOPMENT"
+
+#: ../../Core/view/core/index/index.phtml:54
+#, php-format
+msgid ""
+"Development related modules are here. These modules loaded only when you set "
+"the %s environment value to %s in yor HTTP server"
+msgstr ""
+"Geliştirme sürecinde kullanılan modül listesi. Bu modüller sadece HTTP "
+"sunucunuz üzerindeki %s ortam değişkeni değerini %s olarak verdiğinizde "
+"yüklenirler"
+
+#~ msgid "Show details"
+#~ msgstr "Detayı göster"
+
+#~ msgid "Edit"
+#~ msgstr "Düzenle"
+
+#~ msgid "Back to list"
+#~ msgstr "Listeye geri dön"
+
+#~ msgid "Description is missing for %s"
+#~ msgstr "%s için açıklama girilmemiş"
+
+#~ msgid "Description"
+#~ msgstr "Açıklama"
+
+#~ msgid "Create"
+#~ msgstr "Ekle"
+
+#~ msgid "Edit category"
+#~ msgstr "Kategoriyi düzenle"
+
+#~ msgid "Save all changes"
+#~ msgstr "Tüm değişiklikleri kaydet"
+
+#~ msgid "Categories"
+#~ msgstr "Kategoriler"
+
+#~ msgid "Country name"
+#~ msgstr "Ülke adı"
+
+#~ msgid "Calling code"
+#~ msgstr "Telefon kodu"
+
+#~ msgid "Continent"
+#~ msgstr "Kıta"
+
+#~ msgid "Timezone"
+#~ msgstr "Zaman dilimi"
+
+#~ msgid "Currency"
+#~ msgstr "Para birimi"
+
+#~ msgid "Locale"
+#~ msgstr "Dil"
+
+#~ msgid "Left"
+#~ msgstr "Sol"
+
+#~ msgid "Right"
+#~ msgstr "Sağ"
+
+#~ msgid "Dashboard"
+#~ msgstr "Kontrol Paneli"
+
+#~ msgid "Hello!"
+#~ msgstr "Merhaba!"
+
+#~ msgid "Label"
+#~ msgstr "Etiket"
+
+#~ msgid "Translation"
+#~ msgstr "Çeviri"
+
+#~ msgid "Name"
+#~ msgstr "İsim"
+
+#~ msgid "Language"
+#~ msgstr "Dil"

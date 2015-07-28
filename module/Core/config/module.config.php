@@ -46,14 +46,16 @@ return array(
     ),
 
     'translator' => array(
-        'locale'                    => ['en', 'en'], // ['current', 'fallback']
+        'locale'                    => ['en_US', 'en_US'], // ['current', 'fallback']
+        
         'translation_file_patterns' => array(
             // Core module, default domain
             array(
-                'type'        => 'phpArray',
-                'base_dir'    => __DIR__.'/../language',
-                'pattern'     => '%s.php',
+                'type'     => 'gettext',
+                'base_dir' => __DIR__ . '/../language',
+                'pattern'  => '%s.mo',
             ),
+            
             // Zend captcha
             array(
                 'type'        => 'phpArray',
