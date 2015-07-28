@@ -1,0 +1,32 @@
+<?php echo $this->pageTitle($this->translate('Authorization Required')); ?>
+<br />
+<?php if ($this->failed): ?>
+    <p class="lead text-danger"><?php echo $this->failed ?></p>
+<?php else: ?>
+    <p class="lead"><?php echo $this->translate('The page you have requested requires authorization. Please login to continue..') ?></p>
+<?php endif ?>
+<br />
+<br />
+
+<?php
+    $this->loginForm->prepare();
+    echo $this->form()->openTag($this->loginForm);
+
+    // Email address
+    echo $this->formRow($this->loginForm->get('email'));
+
+    // Password
+    echo $this->formRow($this->loginForm->get('password'));
+
+    // Csrf
+    echo $this->formRow($this->loginForm->get('csrf'));
+
+    // Human check -bypass for now
+    echo $this->formRow($this->loginForm->get('captcha'));
+
+    // Submit
+    echo $this->formRow($this->loginForm->get('submit'));
+
+    echo $this->form()->closeTag();
+?>
+<br /><br />
