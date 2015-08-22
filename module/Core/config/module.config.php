@@ -39,6 +39,7 @@ return array(
         'factories' => array(
             'MvcTranslator' => 'Core\Service\Factory\TranslatorServiceFactory',
             'core.service.auth' => 'Core\Service\Factory\AuthenticationServiceFactory',
+            'core.service.registration' => 'Core\Service\Factory\RegistrationServiceFactory',
         ),
 
         'aliases' => array(

@@ -21,7 +21,7 @@
     // Csrf
     echo $this->formRow($this->loginForm->get('csrf'));
 
-    // Human check -bypass for now
+    // Human check with a captcha
     echo $this->formRow($this->loginForm->get('captcha'));
 
     // Submit

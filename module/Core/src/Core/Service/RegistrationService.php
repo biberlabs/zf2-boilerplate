@@ -20,6 +20,28 @@ class RegistrationService extends AbstractService
     }
 
     /**
+     * Login user with given email address and password.
+     *
+     * @param  string $email      E-mail address of the user
+     * @param  string $password   Password of the user
+     * @param  bool   $rememberme
+     *
+     * @return \Zend\Authentication\Result
+     */
+    public function login($email, $password, $rememberMe = false)
+    {
+        $adapter = $this->authService->getAdapter();
+
+        $adapter->setIdentityValue($email);
+        $adapter->setCredentialValue($password);
+
+
+        $authResult = $this->authService->authenticate();
+
+        return $authResult;
+    }
+
+    /**
      * Verifies given password by given user credentials (using password salt)
      * when user trying to login the system first time.
      *
@@ -54,7 +76,7 @@ class RegistrationService extends AbstractService
      *
      * @return string Password hash which ready to persist in database.
      */
-    public static function hashPasword($password)
+    public static function hashPassword($password)
     {
         $options = array(
             'cost' => 12,

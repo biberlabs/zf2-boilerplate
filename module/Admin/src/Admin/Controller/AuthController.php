@@ -40,7 +40,7 @@ class AuthController extends AbstractActionController
                     $this->redirect()->toUrl('/');
                 } else {
                     $failed = _('Authentication failed. Please check your credentials.');
-                    $logger->info('Login attempt failed: '.json_encode($data));
+                    $logger->info('Login attempt failed.', $data);
                 }
             }
         }
