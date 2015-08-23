@@ -18,17 +18,16 @@ define('APP_URI_API',      'api.boilerplate.local');
 define('APP_URI_ADMIN',    'admin.boilerplate.local');
 
 /**
- * You need to define the domains above in your HTTP server respectively and
- * each request should be handled by correct server, not randomly.
+ * You need to define three virtual hosts for the domains above in your 
+ * HTTP server respectively and each request should be handled by correct 
+ * virtual server, not randomly.
  *
  * Setting correct/separate server names in HTTP level and getting ready to run same
  * application on multiple pyshical nodes is a good approach from many aspects,
- * also probably it will be MUST when application is growing & need scaling.
+ * also probably it will be a MUST when your application is growing & need scaling.
  *
  * You also will need to alter this hardcoded domain names in this file
  * on production/testing/staging environments utilizing sed/awk on build-time.
- *
- * Check application.config.php for use case of server name.
  */
 define('APP_SERVER_NAME',  (isset($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : 'cli'));
 
