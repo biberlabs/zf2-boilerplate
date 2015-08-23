@@ -7,6 +7,7 @@
  */
 namespace Core\Service\Interfaces;
 
-interface CacheAwareInterface extends ApcAwareInterface, MemcachedAwareInterface, RedisAwareInterface
+interface CacheAwareInterface
 {
+    public function getCache();
 }

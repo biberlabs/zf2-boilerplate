@@ -8,8 +8,13 @@
 namespace Core\Service\Initializers;
 
 use Zend\ServiceManager\InitializerInterface;
+use Zend\ServiceManager\ServiceLocatorInterface;
+use Core\Service\Interfaces\CacheAwareInterface;
+use Core\Service\Interfaces\RedisAwareInterface;
+use Core\Service\Interfaces\ApcAwareInterface;
+use Core\Service\Interfaces\MemcachedAwareInterface;
 
-interface CacheInitializer implements InitializerInterface
+class CacheAwareInitializer implements InitializerInterface
 {
     /**
      * Initialize method 
