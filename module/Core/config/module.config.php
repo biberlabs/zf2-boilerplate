@@ -33,13 +33,14 @@ return array(
 
     'service_manager' => array(
         'abstract_factories' => array(
-            'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
+            'Zend\Cache\Service\StorageCacheAbstractServiceFactory', // Zend Built-in cache factory
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
         'factories' => array(
             'MvcTranslator' => 'Core\Service\Factory\TranslatorServiceFactory',
             'core.service.auth' => 'Core\Service\Factory\AuthenticationServiceFactory',
             'core.service.registration' => 'Core\Service\Factory\RegistrationServiceFactory',
+            'Example'       => 'Core\Service\Factory\ExampleServiceFactory',
         ),
 
         'aliases' => array(
@@ -47,12 +48,17 @@ return array(
             // Aliasing the Zend\Authentication\AuthenticationService will allow it to be 
             // recognised by the ZF2 view helper.
             'Zend\Authentication\AuthenticationService' => 'core.service.auth',
+            'ExampleService' => 'Example',
+        ),
+
+        'initializers' => array(
+            'Core\Service\Initializers\CacheAwareInitializer',
         ),
     ),
 
     'translator' => array(
         'locale'                    => ['en_US', 'en_US'], // ['current', 'fallback']
-        
+
         'translation_file_patterns' => array(
             // Core module, default domain
             array(
@@ -189,7 +195,7 @@ return array(
                             '127.0.0.1',11211
                         )
                     ),
-                    'namespace'  => 'EIQ',
+                    'namespace'  => 'zf2_boilerplate',
                     'liboptions' => array(
                         'COMPRESSION'     => true,
                         'binary_protocol' => true,
@@ -215,6 +221,22 @@ return array(
                     ),
                 ),
             ),
+        'core.cache.redis' => array(
+            'adapter' => array(
+                'name' => 'redis',
+                'options' => array (
+                    'server' => [
+                            'host' => '127.0.0.1',
+                            'port' => 6379,
+                    ]
+                ),
+            ),
+            'plugins' => array(
+                'exception_handler' => array(
+                    'throw_exceptions' => false
+                ),
+            ),
+        ),
 
         'core.cache.session' => array(
             'adapter' => array(
