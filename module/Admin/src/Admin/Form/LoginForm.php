@@ -32,6 +32,7 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
                 'placeholder'      => 'Your email address',
                 'twb-layout'       => self::LAYOUT_HORIZONTAL,
                 'column-size'      => 'sm-6',
+                'help-block'       => 'Demo user: admin@boilerplate.local',
                 'label_attributes' => array(
                     'class' => 'col-sm-2',
                 ),
@@ -45,6 +46,7 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
                 'label'            => _('Password'),
                 'twb-layout'       => self::LAYOUT_HORIZONTAL,
                 'column-size'      => 'sm-6',
+                'help-block'       => 'Demo pass: TestPass!',
                 'label_attributes' => array(
                     'class' => 'col-sm-2',
                 ),
