@@ -15,7 +15,6 @@ class Module
     public function onBootstrap(MvcEvent $e)
     {
         $eventManager = $e->getApplication()->getEventManager();
-        $auth         = $e->getApplication()->getServiceManager()->get('core.service.auth');
         $locale       = Locales::DEFAULT_LOCALE;
         $session      = new Container('locale');
         $translator   = $e->getApplication()
