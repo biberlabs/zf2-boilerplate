@@ -34,8 +34,7 @@ class RegistrationService extends AbstractService
 
         $adapter->setIdentityValue($email);
         $adapter->setCredentialValue($password);
-
-
+        
         $authResult = $this->authService->authenticate();
 
         return $authResult;
