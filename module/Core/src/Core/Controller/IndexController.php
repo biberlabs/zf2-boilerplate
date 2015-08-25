@@ -13,10 +13,6 @@ class IndexController extends AbstractActionController
         $view = new ViewModel();
         $view->setTemplate(self::TEMPLATE_INDEX);
 
-        // Example Service Usage with Cache Storage
-        // $exampleService = $this->getServiceLocator()->get('ExampleService');
-        // $helloWorldText = $exampleService->helloWorld());
-
         return new ViewModel();
     }
 }

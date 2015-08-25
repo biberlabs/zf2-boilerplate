@@ -40,7 +40,6 @@ return array(
             'MvcTranslator' => 'Core\Service\Factory\TranslatorServiceFactory',
             'core.service.auth' => 'Core\Service\Factory\AuthenticationServiceFactory',
             'core.service.registration' => 'Core\Service\Factory\RegistrationServiceFactory',
-            'Example'       => 'Core\Service\Factory\ExampleServiceFactory',
         ),
 
         'aliases' => array(
@@ -48,7 +47,6 @@ return array(
             // Aliasing the Zend\Authentication\AuthenticationService will allow it to be 
             // recognised by the ZF2 view helper.
             'Zend\Authentication\AuthenticationService' => 'core.service.auth',
-            'ExampleService' => 'Example',
         ),
 
         'initializers' => array(
