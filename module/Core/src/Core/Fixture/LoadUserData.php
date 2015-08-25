@@ -30,8 +30,7 @@ class LoadUserData extends BaseFixture
 
         $i = 0;
         foreach ($users as $item) {
-            $user = new UserEntity();
-            $user = $hydrator->hydrate($item, $user);
+            $user = $hydrator->hydrate($item, new UserEntity());
             $manager->persist($user);
             echo '.';
             $i++;
