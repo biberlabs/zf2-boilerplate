@@ -9,9 +9,13 @@ namespace Core\Service;
 
 use Core\Entity\User as UserEntity;
 use Zend\Authentication\AuthenticationService;
+use DoctrineModule\Persistence\ObjectManagerAwareInterface;
+use Core\Traits\ObjectManagerAwareTrait;
 
-class RegistrationService extends AbstractService
+class RegistrationService extends AbstractService implements ObjectManagerAwareInterface
 {
+    use ObjectManagerAwareTrait;
+
     protected $authService = null;
 
     public function __construct(AuthenticationService $authService)
@@ -36,6 +40,12 @@ class RegistrationService extends AbstractService
         $adapter->setCredentialValue($password);
         
         $authResult = $this->authService->authenticate();
+
+        if ($authResult->isValid()) {
+            $user = $authResult->getIdentity();
+            $user->setLastLoginDate(new \DateTime());
+            $this->getObjectManager()->flush($user);
+        }
 
         return $authResult;
     }

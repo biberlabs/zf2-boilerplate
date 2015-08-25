@@ -51,6 +51,11 @@ return array(
 
         'initializers' => array(
             'Core\Service\Initializers\CacheAwareInitializer',
+            'Core\Service\Initializers\ObjectManagerAwareInitializer',
+        ),
+
+        'invokables' => array(
+            'core.service.user' => 'Core\Service\UserService',
         ),
     ),
 

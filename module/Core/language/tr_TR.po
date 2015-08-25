@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ZF2 Boilerplate\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-29 00:06+0200\n"
-"PO-Revision-Date: 2015-07-29 00:33+0200\n"
+"POT-Creation-Date: 2015-08-26 01:03+0200\n"
+"PO-Revision-Date: 2015-08-26 01:04+0200\n"
 "Last-Translator: Yilmaz <yilmazsuslu@gmail.com>\n"
 "Language-Team: \n"
 "Language: tr_TR\n"
@@ -26,23 +26,23 @@ msgstr "Giriş başarısız. Lütfen email adresi ve parolanızı kontrol edin."
 msgid "Email address"
 msgstr "E-posta adresi"
 
-#: ../../Admin/src/Admin/Form/LoginForm.php:45
+#: ../../Admin/src/Admin/Form/LoginForm.php:46
 msgid "Password"
 msgstr "Parola"
 
-#: ../../Admin/src/Admin/Form/LoginForm.php:69
+#: ../../Admin/src/Admin/Form/LoginForm.php:71
 msgid "I am not a robot"
 msgstr "Ben robot değilim"
 
-#: ../../Admin/src/Admin/Form/LoginForm.php:82
+#: ../../Admin/src/Admin/Form/LoginForm.php:84
 msgid "Please type the word above"
 msgstr "Lütfen yukarıdaki kelimeyi yazın"
 
-#: ../../Admin/src/Admin/Form/LoginForm.php:96
+#: ../../Admin/src/Admin/Form/LoginForm.php:98
 msgid "Login"
 msgstr "Giriş Yap"
 
-#: ../../Admin/src/Admin/Form/LoginForm.php:123
+#: ../../Admin/src/Admin/Form/LoginForm.php:125
 msgid "Minimum password length is 6 characters!"
 msgstr "Şifreniz en az 6 karakterten oluşmalıdır!"
 
@@ -57,6 +57,23 @@ msgid ""
 msgstr ""
 "Ulaşmaya çalıştığınız sayfa yetki gerektiriyor. Devam etmek için lütfen "
 "giriş yapın.."
+
+#: ../../Admin/view/admin/dashboard/index.phtml:9
+msgid "Dashboard"
+msgstr "Kontrol Paneli"
+
+#: ../../Admin/view/admin/dashboard/index.phtml:12
+#, php-format
+msgid ""
+"You just logged-in to zf2 boilerplate app's administration interface as "
+"<strong>%s</strong>"
+msgstr ""
+"ZF2 Boilerplate uygulamasının yönetim arayüzüne <strong>%s</strong> "
+"hesabıyla oturum açtınız."
+
+#: ../../Admin/view/admin/dashboard/index.phtml:17
+msgid "Last login date"
+msgstr "Son giriş tarihi"
 
 #: ../../Admin/view/error/404.phtml:1 ../../Core/view/error/404.phtml:1
 msgid "A 404 error occurred"
@@ -183,6 +200,23 @@ msgstr ""
 "sunucunuz üzerindeki %s ortam değişkeni değerini %s olarak verdiğinizde "
 "yüklenirler"
 
+#: ../../Core/view/core/index/index.phtml:86
+msgid "Help &amp; Support"
+msgstr "Yardım &amp; Destek"
+
+#: ../../Core/view/core/index/index.phtml:89
+#, php-format
+msgid ""
+"If you need any help or support while developing with ZF2, you may reach us "
+"via IRC: %s#zftalk on Freenode%s. We'd love to hear any questions or "
+"feedback you may have regarding the beta releases. Alternatively, you may "
+"subscribe and post questions to the %smailing lists%s."
+msgstr ""
+
+#: ../../Core/view/core/index/index.phtml:90
+msgid "Ping us on IRC"
+msgstr ""
+
 #~ msgid "Show details"
 #~ msgstr "Detayı göster"
 
@@ -233,9 +267,6 @@ msgstr ""
 
 #~ msgid "Right"
 #~ msgstr "Sağ"
-
-#~ msgid "Dashboard"
-#~ msgstr "Kontrol Paneli"
 
 #~ msgid "Hello!"
 #~ msgstr "Merhaba!"

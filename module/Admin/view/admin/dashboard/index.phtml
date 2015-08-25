@@ -6,9 +6,19 @@
 </ol>
 
 <div class="jumbotron">
-    <h2>Dashboard</h2>
+    <h2><?php echo $this->translate('Dashboard') ?></h2>
     <p>
-        You just logged-in to boilerplate administration interface as 
-        <strong><?php echo $this->identity()->getNameSurname() ?></strong>.
+        <?php
+            echo sprintf($this->translate("You just logged-in to zf2 boilerplate app's administration interface as <strong>%s</strong>"), $this->identity()->getNameSurname());
+        ?>
     </p>
+
+    <small>
+        <?php echo $this->translate('Last login date') ?>: 
+        <?php echo $this->dateFormat($this->identity()->getLastLoginDate(),
+                                     IntlDateFormatter::LONG,
+                                     IntlDateFormatter::SHORT
+                                     ); ?>
+    </small>
+
 </div>
