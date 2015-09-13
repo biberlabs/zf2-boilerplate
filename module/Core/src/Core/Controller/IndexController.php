@@ -13,6 +13,6 @@ class IndexController extends AbstractActionController
         $view = new ViewModel();
         $view->setTemplate(self::TEMPLATE_INDEX);
 
-        return new ViewModel();
+        return $view;
     }
 }
