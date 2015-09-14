@@ -51,6 +51,7 @@ return array(
 
         'initializers' => array(
             'Core\Service\Initializers\CacheAwareInitializer',
+            'Core\Service\Initializers\LoggerAwareInitializer',
             'Core\Service\Initializers\ObjectManagerAwareInitializer',
         ),
 
@@ -173,6 +174,13 @@ return array(
                     'options'  => array(
                         'stream' => 'data/logs/application.'.date('Y.m.d').'.log',
                     ),
+                ),
+            ),
+            'processors' => array(
+                array(
+                    'name' => 'Core\Log\Processor\EventType',
+                    'priority' => 1000,
+                    'options' => array(),
                 ),
             ),
         ),

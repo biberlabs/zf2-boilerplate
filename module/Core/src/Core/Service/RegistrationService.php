@@ -44,7 +44,11 @@ class RegistrationService extends AbstractService implements ObjectManagerAwareI
         if ($authResult->isValid()) {
             $user = $authResult->getIdentity();
             $user->setLastLoginDate(new \DateTime());
-            $this->getObjectManager()->flush($user);
+            try {
+                $this->getObjectManager()->flush($user);
+            } catch (\Exception $e) {
+                $this->getLogger()->err('User last login date update error', ['exception' => $e]);
+            }
         }
 
         return $authResult;
