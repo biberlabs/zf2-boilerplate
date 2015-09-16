@@ -111,8 +111,6 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
                 'required'    => true,
                 'allow_empty' => false,
                 'filters'     => array(
-                    array('name' => 'StringTrim'),
-                    array('name' => 'StripTags'),
                     array('name' => 'ToNull'),
                     ),
                 'validators' => array(
