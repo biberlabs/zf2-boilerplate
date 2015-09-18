@@ -4,10 +4,11 @@
  */
 $brand-primary: #36465D;
 $enable-flex: true;
+$enable-rounded: false;
 
 @import "../../bower_components/bootstrap/scss/bootstrap.scss";
 
 body {
-    padding-top: 80px;
+    padding-top: 40px;
     padding-bottom: 20px;
 }
