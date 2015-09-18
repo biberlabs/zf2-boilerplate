@@ -1,26 +1,20 @@
 <?php echo $this->doctype(); ?>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <?php echo $this->headTitle('ZF2 Boilerplate Administration')->setSeparator(' - ')->setAutoEscape(false) ?>
-
         <?php echo $this->headMeta()
-            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendName('viewport', 'width=device-width, initial-scale=1')
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
         ?>
-        <link rel="stylesheet" href="/css/all.admin.css" />
+        <link rel="stylesheet" href="/css/zf2-boilerplate.css" />
         <!-- Scripts -->
         <?php
-        echo $this->headLink(
-                    array(
-                        'rel' => 'shortcut icon',
-                        'type' => 'image/vnd.microsoft.icon',
-                        'href' => '/img/favicon.ico'
-                        )
-                    );
+        echo $this->headLink([
+            'rel' => 'shortcut icon',
+            'type' => 'image/vnd.microsoft.icon',
+            'href' => '/img/favicon.ico'
+            ]);
         ?>
 
     </head>
@@ -28,12 +22,13 @@
         <?php echo $this->partial('partial/header.phtml'); ?>
         <div class="container">
             <?php echo $this->content; ?>
-            <hr>
-            <footer>
-            <p>Copyleft ZF2 Boilerplate, <?php echo date('Y') ?> - Rendered in ~<?php echo (microtime(true) - REQUEST_STARTED) * 1000 , ' ms'; ?></p>
-            </footer>
         </div> <!-- /container -->
-        <script src="/js/all-admin.js"></script>
+        <hr />
+        <footer>
+            <p>Copyleft ZF2 Boilerplate, <?php echo date('Y') ?> - Rendered in ~<?php echo (microtime(true) - REQUEST_STARTED) * 1000 , ' ms'; ?></p>
+        </footer>
+
+        <script src="/js/zf2-boilerplate-admin.js"></script>
         <?php echo $this->inlineScript() ?> 
     </body>
 </html>

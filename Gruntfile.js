@@ -1,173 +1,221 @@
+/*!
+ * ZF2 Boilplate Gruntfile
+ */
 module.exports = function(grunt) {
+
+    var conf = {
+        bspath : './bower_components/bootstrap',
+        jqpath : './bower_components/jquery',
+        fapath : './bower_components/font-awesome'
+    };
 
     // 1. All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        // 2.A Convert LESS to CSS
-        less: {
-            options: {
-                paths: ["css"]
-            },
-            dist: {
-                files: {
-                    "assets/css/generate/custom-admin-bootstrap.css": "assets/less/custom-admin-bootstrap.less",
-                    "assets/css/generate/custom-bootstrap.css": "assets/less/custom-bootstrap.less",
-                    "assets/css/generate/font-awesome.css": "bower_components/font-awesome/less/font-awesome.less",
-                    "assets/css/generate/custom-styles.css": "assets/less/custom-styles.less",
-                    "assets/css/generate/custom-admin-styles.css": "assets/less/custom-admin-styles.less"
-                }
-            }
-        },
-
-        // 2.B Configuration for concatinating files
         concat: {
+            options: {
+                stripBanners: false
+            },
+
             bootstrap: {
                 src: [
-                  'bower_components/bootstrap/js/transition.js',
-                  'bower_components/bootstrap/js/alert.js',
-                  'bower_components/bootstrap/js/button.js',
-                  'bower_components/bootstrap/js/carousel.js',
-                  'bower_components/bootstrap/js/collapse.js',
-                  'bower_components/bootstrap/js/dropdown.js',
-                  'bower_components/bootstrap/js/modal.js',
-                  'bower_components/bootstrap/js/tooltip.js',
-                  'bower_components/bootstrap/js/popover.js',
-                  'bower_components/bootstrap/js/scrollspy.js',
-                  'bower_components/bootstrap/js/tab.js',
-                  'bower_components/bootstrap/js/affix.js'
+                    conf.bspath+'/dist/js/bootstrap.js'
                 ],
-                dest: 'assets/js/generate/bootstrap.js'
-              },
-
-            styles: {
-                src: [
-                  'assets/css/generate/custom-bootstrap.css',
-                  'assets/css/generate/font-awesome.css',
-                  'assets/css/generate/custom-styles.css',
-                ],
-                dest: 'public/css/all.css'
-              },
-
-            adminstyles: {
-                src: [
-                  'assets/css/generate/custom-admin-bootstrap.css',
-                  'assets/css/generate/font-awesome.css',
-                  'assets/css/generate/custom-admin-styles.css',
-                ],
-                dest: 'public/css/all.admin.css'
-              },
-
-            scripts: {
-                src: [
-                  'bower_components/jquery/dist/jquery.js',
-                  'assets/js/generate/bootstrap.js', // We merged bootstrap manually.
-                  'assets/js/scripts.js',
-                ],
-                dest: 'public/js/all.js'
-              },
-
-            adminscripts: {
-                src: [
-                  'bower_components/jquery/dist/jquery.js',
-                  'assets/js/generate/bootstrap.js', // We merged bootstrap manually.
-                  'assets/js/admin/*.js',
-                ],
-                dest: 'public/js/all-admin.js'
-              },
-
-            nonmodern: {
-                src: [
-                  'bower_components/modernizr/modernizr.js',
-                  'bower_components/respond/dest/respond.src.js'
-                ],
-                dest: 'public/js/modernizr-respond.js'
-              }
-        },
-
-        // minify the css files
-        cssmin: {
-            dist: {
-                options: {
-                    banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-                },
-                files: {
-                    'public/css/all.min.css': ['public/css/all.css'],
-                    'public/css/all.admin.min.css': ['public/css/all.admin.css'],
-                }
-            }
-        },
-
-        // uglify the concat javascript files
-        uglify: {
-            options: {
-                compress : {
-                    drop_console: true // DROP console.log
-                },
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-            },
-            dist: {
-                files: {
-                    'public/js/all.min.js': [
-                        'public/js/all.js',
-                        'public/js/modernizr-respond.js'
-                        ],
-                    'public/js/all-admin.min.js': [
-                        'public/js/all-admin.js',
-                        ],
-                }
-            }
-        },
-
-        // 2.C Copy assets
-        copy: {
-            images: {
-                expand: true,
-                cwd: 'assets/img/',
-                src: '**',
-                dest: 'public/img/',
-                flatten: false,
+                dest: 'assets/js/generate/latest-bs4.js'
             },
 
-            fonts: {
-                expand: true,
-                cwd: 'bower_components/font-awesome/fonts/',
-                src: '**',
-                dest: 'public/fonts/',
-                flatten: true,
-                filter: 'isFile',
+            wwwjs: {
+                src: [
+                    conf.jqpath + '/dist/jquery.js',
+                    'assets/js/generate/latest-bs4.js',
+                    'assets/js/plugins.js',
+                    'assets/js/scripts.js'
+                ],
+                dest: 'assets/js/generate/<%= pkg.name %>.js'
             },
 
-            customfonts: {
-                expand: true,
-                src: 'assets/fonts/**',
-                dest: 'public/fonts/',
-                flatten: true,
-                filter: 'isFile',
-            }
+            adminjs: {
+                src: [
+                    conf.jqpath + '/dist/jquery.js',
+                    'assets/js/generate/latest-bs4.js',
+                    'assets/js/admin/admin-scripts.js',
+                ],
+                dest: 'assets/js/generate/<%= pkg.name %>-admin.js'
+            },
+
+            wwwcss: {
+                src: [
+                    'assets/css/generate/<%= pkg.name %>.css',
+                    conf.fapath + '/css/font-awesome.css'
+                ],
+                dest: 'assets/css/generate/<%= pkg.name %>.css'
+            },
+
+            admincss: {
+                src: [
+                    conf.jqpath + '/dist/jquery.js',
+                    'assets/js/generate/latest-bs4.js',
+                    'assets/js/plugins.js',
+                    'assets/js/scripts.js'
+                ],
+                dest: 'assets/js/generate/<%= pkg.name %>.js'
+            },
         },
 
-        // WATCH
+        sass: {
+          options: {
+            includePaths: [conf.bspath + '/scss'],
+            precision: 6,
+            sourceComments: false,
+            sourceMap: true,
+            outputStyle: 'expanded'
+          },
+          core: {
+            files: {
+              'assets/css/generate/<%= pkg.name %>.css': 'assets/scss/app.scss'
+            }
+          }
+        },
+
+        // Watch
         watch: {
-            scripts: {
-                files: ['assets/less/*.{css,less}', 'assets/js/admin/*.js', 'assets/js/scripts.js'],
-                tasks: ['dev'],
+            sass: {
+                files: 'assets/scss/**/*.scss',
+                tasks: ['dev']
             },
+        },
+
+        autoprefixer: {
+          options: {
+            browsers: [
+              'Android 2.3',
+              'Android >= 4',
+              'Chrome >= 35',
+              'Firefox >= 31',
+              'Explorer >= 9',
+              'iOS >= 7',
+              'Opera >= 12',
+              'Safari >= 7.1'
+            ]
+          },
+          core: {
+            options: {
+              map: false
+            },
+            src: 'assets/css/generate/*.css'
+          }
+        },
+
+        usebanner: {
+          options: {
+            position: 'top',
+            banner: '<%= banner %>'
+          },
+          files: {
+            src: 'assets/css/generate/*.css'
+          }
+        },
+
+        csscomb: {
+          dist: {
+            options: {
+              config: conf.bspath+'scss/.csscomb.json'
+            },
+            expand: true,
+            cwd: 'assets/css/generate/css/',
+            src: ['*.css', '!*.min.css'],
+            dest: 'assets/css/generate/css/'
+          }
+        },
+
+        cssmin: {
+          options: {
+            compatibility: 'ie8',
+            keepSpecialComments: '*',
+            sourceMap: false,
+            noAdvanced: true
+          },
+          core: {
+            files: [
+              {
+                expand: true,
+                cwd: 'assets/css/generate',
+                src: ['*.css', '!*.min.css'],
+                dest: 'assets/css/generate',
+                ext: '.min.css'
+              }
+            ]
+          }
+        },
+
+        uglify: {
+          options: {
+            compress: {
+              warnings: false,
+              drop_console: true
+            },
+            mangle: true,
+            preserveComments: 'some',
+             banner: '/*! <%= pkg.name %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %> */\n'
+          },
+          www: {
+            src: 'assets/js/generate/<%= pkg.name %>.js',
+            dest: 'assets/js/generate/<%= pkg.name %>.min.js'
+          },
+          admin: {
+            src: 'assets/js/generate/<%= pkg.name %>-admin.js',
+            dest: 'assets/js/generate/<%= pkg.name %>-admin.min.js'
+          }
+        },
+
+        copy: {
+          images: {
+            expand: true,
+            cwd:'assets/img/',
+            src: '**',
+            dest: 'public/img/',
+            flatten: false
+          },
+          styles: {
+            expand: true,
+            cwd:'assets/css/generate/',
+            src: '*.css',
+            dest: 'public/css/',
+            flatten: false
+          },
+          scripts: {
+            expand: true,
+            cwd:'assets/js/generate/',
+            src: '<%= pkg.name %>*',
+            dest: 'public/js/',
+            flatten: false
+          },
+          fonts: {
+            expand: true,
+            cwd:conf.fapath + '/fonts/',
+            src: '**',
+            dest: 'public/fonts/',
+            flatten: false,
+            filter: 'isFile'
+          }
         },
 
     });
 
-    // 3. Where we tell Grunt we plan to use this plug-in.
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
+  // These plugins provide necessary tasks.
+  require('load-grunt-tasks')(grunt, { scope: 'devDependencies',
+    // Exclude Sass compilers. We choose the one to load later on.
+    pattern: ['grunt-*'] });
+  require('time-grunt')(grunt);
 
-    grunt.registerTask('default', ['less', 'concat','cssmin','uglify','copy']);
+  grunt.loadNpmTasks('grunt-sass');
 
-    // Development tasks - $ grunt dev
-    grunt.registerTask('dev', ['less', 'concat', 'copy']);
+  grunt.registerTask('bootstrap', ['sass:core', 'autoprefixer:core', 'usebanner', 'csscomb:dist', 'concat:bootstrap']);
 
+  // Development build
+  grunt.registerTask('dev', ['bootstrap', 'concat:wwwjs', 'concat:adminjs', 'concat:wwwcss', 'copy:images', 'copy:scripts', 'copy:styles', 'copy:fonts']);
+
+  // Production build
+  grunt.registerTask('default', ['dev', 'cssmin:core', 'uglify'])
 };

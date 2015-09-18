@@ -1,67 +1,36 @@
 <?php
 $user = $this->identity();
 ?>
-<header class="navbar navbar-fixed-top navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/"><span class="fa fa fa-home">&nbsp;</span> Admin</a>
-        </div>
+<header>
+    <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
+        <a class="navbar-brand" href="/"><span class="fa fa fa-home">&nbsp;</span> Admin</a>
+        <ul class="nav navbar-nav pull-right">
+        <?php if ($user): ?>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><?php echo $user->getNameSurname() ?></a>
+            </li>
+        <?php endif ?>
+            <li class="dropdown nav-item">
+              <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                <i class="fa fa-gear"></i>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <?php
+                        foreach (\Core\I18n\Locale::getAvailableLocales() as $key => $value) {
+                            $flag = strtolower(explode('_', $key)[1]);
+                            echo '<a href="/locale/change?set='.$key.'" class="dropdown-item"><i class="flag flag-'.$flag.'"></i> &nbsp;'.$value.'</a>';
+                        }
+                    ?>
+              </div>
+            </li>
+        <?php if ($user): ?>
+            <li class="nav-item">
+                <a href="/auth/logout" class="nav-link">
+                    <?php echo $this->translate('Logout') ?> &nbsp; <span class="fa fa-sign-out"></span>
+                </a>
+            </li>
+        <?php endif ?>
+        </ul>
+    </nav>
 
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <?php
-                    if ($user) {
-                        // Render this menu for only logged-in users
-                        ?>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sample menu <span class="caret"></span></a> 
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-list fa-fw"></i> &nbsp;
-                                        List lorem ipsum..
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-plus fa-fw"></i> &nbsp;
-                                        Create a new lorem ipsum..
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Other link</a></li>
-                        <?php
-                    }
-                ?>
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-            <?php if ($user): ?>
-                <li>
-                    <p class="navbar-text"><?php echo $user->getNameSurname() ?> &nbsp; <span class="fa fa-user"></span></p>
-                </li>
-                <li><a href="/auth/logout"><?php echo $this->translate('Logout') ?> &nbsp; <span class="fa fa-sign-out"></span></a></li>
-            <?php endif ?>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe"></i> <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <?php
-                            foreach (\Core\I18n\Locale::getAvailableLocales() as $key => $value) {
-                                $flag = strtolower(explode('_', $key)[1]);
-                                echo '<li><a href="/locale/change?set='.$key.'"><i class="flag flag-'.$flag.'"></i> &nbsp;'.$value.'</a></li>';
-                            }
-                        ?>
-                        
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
-    </div>
 </header>

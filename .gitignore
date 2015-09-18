@@ -26,8 +26,8 @@ data/logs/*
 # Build automation related
 bower_components/
 node_modules/
-assets/js/generate/*.js
-assets/css/generate/*.css
+assets/js/generate/*
+assets/css/generate/*
 public/css/
 public/js/
 public/img/
