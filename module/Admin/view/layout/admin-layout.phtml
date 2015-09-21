@@ -24,9 +24,17 @@
             <?php echo $this->content; ?>
         </div> <!-- /container -->
         <hr />
+        
         <footer>
-            <p>Copyleft ZF2 Boilerplate, <?php echo date('Y') ?> - Rendered in ~<?php echo (microtime(true) - REQUEST_STARTED) * 1000 , ' ms'; ?></p>
+            <div class="container-fluid">
+                <p>
+                    <small>
+                        Copyleft ZF2 Boilerplate, <?php echo date('Y') ?> - Rendered in ~<?php echo (microtime(true) - REQUEST_STARTED) * 1000 , ' ms'; ?>
+                    </small>
+                </p>
+            </div>
         </footer>
+        
 
         <script src="/js/zf2-boilerplate-admin.js"></script>
         <?php echo $this->inlineScript() ?> 
