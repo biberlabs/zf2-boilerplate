@@ -6,22 +6,8 @@
     <p class="lead"><?php echo $this->translate('The page you have requested requires authorization. Please login to continue..') ?></p>
 <?php endif ?>
 
-
-
 <?php
-
-// In any of your .phtml files:
- $flash = $this->flashMessenger();
- $flash->setMessageOpenFormat('<div%s>
-     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-         &times;
-     </button>
-     <ul><li>')
-     ->setMessageSeparatorString('</li><li>')
-     ->setMessageCloseString('</li></ul></div>');
-
- echo $flash->render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
-
+    echo $this->notification()->error();
 
     $this->loginForm->prepare();
     echo $this->form()->openTag($this->loginForm);

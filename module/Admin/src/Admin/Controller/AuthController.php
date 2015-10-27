@@ -42,7 +42,6 @@ class AuthController extends BaseAdminController
                     $logger->info('Login attempt failed.', $data);
                 }
             } else {
-                $this->flashMessenger()->addErrorMessage('Login attempt failed');
                 $this->formErrors($form->getMessages());
             }
         }

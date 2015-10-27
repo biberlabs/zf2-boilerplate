@@ -35,6 +35,13 @@ class BaseAdminController extends AbstractActionController
         return parent::onDispatch($event);
     }
 
+    /**
+     * Converts form validation error messages to simple
+     * text messages to use with flashMessenger view helper
+     *
+     * @param  array  $errors Output of the form->getMessages()
+     * @return void
+     */
     protected function formErrors(array $errors)
     {
         $errors = array_values($errors);
