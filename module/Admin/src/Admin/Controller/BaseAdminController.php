@@ -34,4 +34,13 @@ class BaseAdminController extends AbstractActionController
 
         return parent::onDispatch($event);
     }
+
+    protected function formErrors(array $errors)
+    {
+        $errors = array_values($errors);
+
+        foreach ($errors as $key => $value) {
+            $this->flashMessenger()->addErrorMessage($value);
+        }
+    }
 }

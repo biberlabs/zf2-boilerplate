@@ -5,24 +5,44 @@
 <?php else: ?>
     <p class="lead"><?php echo $this->translate('The page you have requested requires authorization. Please login to continue..') ?></p>
 <?php endif ?>
-<br />
-<br />
+
+
 
 <?php
+
+// In any of your .phtml files:
+ $flash = $this->flashMessenger();
+ $flash->setMessageOpenFormat('<div%s>
+     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+         &times;
+     </button>
+     <ul><li>')
+     ->setMessageSeparatorString('</li><li>')
+     ->setMessageCloseString('</li></ul></div>');
+
+ echo $flash->render('error',   array('alert', 'alert-dismissible', 'alert-danger'));
+
+
     $this->loginForm->prepare();
     echo $this->form()->openTag($this->loginForm);
+?>
+    <fieldset class="form-group">
+    <label><?php echo $this->loginForm->get('email')->getLabel() ?></label>
+    <?php echo $this->formElement($this->loginForm->get('email')); ?>
+    </fieldset>
 
-    // Email address
-    echo $this->formRow($this->loginForm->get('email'));
+    <fieldset class="form-group">
+    <label><?php echo $this->loginForm->get('password')->getLabel() ?></label>
+    <?php echo $this->formElement($this->loginForm->get('password')); ?>
+    </fieldset>
+  
+    <?php echo $this->formElement($this->loginForm->get('csrf')); ?>
 
-    // Password
-    echo $this->formRow($this->loginForm->get('password'));
-
-    // Csrf
-    echo $this->formRow($this->loginForm->get('csrf'));
-
-    // Human check with a captcha
-    echo $this->formRow($this->loginForm->get('captcha'));
+    <fieldset class="form-group">
+    <label><?php echo $this->loginForm->get('captcha')->getLabel() ?></label>
+    <?php echo $this->formElement($this->loginForm->get('captcha')); ?>
+    </fieldset>
+<?php
 
     // Submit
     echo $this->formRow($this->loginForm->get('submit'));
