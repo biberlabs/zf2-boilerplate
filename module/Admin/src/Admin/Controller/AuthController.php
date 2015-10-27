@@ -39,6 +39,7 @@ class AuthController extends BaseAdminController
                     $this->redirect()->toUrl('/');
                 } else {
                     $failed = _('Authentication failed. Please check your credentials.');
+                    //$this->flashMessenger()->addErrorMessage($failed);
                     $logger->info('Login attempt failed.', $data);
                 }
             } else {

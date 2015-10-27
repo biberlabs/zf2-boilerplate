@@ -44,10 +44,11 @@ class BaseAdminController extends AbstractActionController
      */
     protected function formErrors(array $errors)
     {
-        $errors = array_values($errors);
-
-        foreach ($errors as $key => $value) {
-            $this->flashMessenger()->addErrorMessage($value);
-        }
+        $messenger = $this->flashMessenger();
+        array_walk_recursive($errors, function ($item, $key) use (&$messenger) {
+            if (is_string($item)) {
+                $messenger->addErrorMessage($item);
+            }
+        });
     }
 }

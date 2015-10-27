@@ -23,9 +23,9 @@ class Notification extends AbstractHelper
 
     public function __invoke()
     {
-        $format      = '<div%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><ul><li>';
+        $openFormat  = '<div%s><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><ul><li>';
         $this->flash = $this->view->flashMessenger();
-        $this->flash->setMessageOpenFormat($format)
+        $this->flash->setMessageOpenFormat($openFormat)
                     ->setMessageSeparatorString('</li><li>')
                     ->setMessageCloseString('</li></ul></div>');
 
@@ -35,12 +35,12 @@ class Notification extends AbstractHelper
     public function error()
     {
         echo $this->flash->render('error', array('alert', 'alert-danger'));
-        $this->flash->getPluginFlashMessenger()->clearCurrentMessagesFromNamespace('error');
+        //$this->flash->getPluginFlashMessenger()->clearCurrentMessages('error');
     }
 
     public function success()
     {
         echo $this->flash->render('success', array('alert', 'alert-success'));
-        $this->flash->getPluginFlashMessenger()->clearCurrentMessagesFromNamespace('success');
+        //$this->flash->getPluginFlashMessenger()->clearCurrentMessages('success');
     }
 }
