@@ -23,7 +23,8 @@
         "zfcampus/zf-hal": "~1.0",
         "zfcampus/zf-mvc-auth": "~1.0",
         "zfcampus/zf-rest": "~1.0",
-        "predis/predis": "1.0.3"
+        "predis/predis": "1.0.3",
+        "ruflin/elastica":"2.3.1"
     },
 
     "require-dev": {
