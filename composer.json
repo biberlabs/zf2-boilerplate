@@ -22,7 +22,8 @@
         "zfcampus/zf-content-validation": "~1.0",
         "zfcampus/zf-hal": "~1.0",
         "zfcampus/zf-mvc-auth": "~1.0",
-        "zfcampus/zf-rest": "~1.0"
+        "zfcampus/zf-rest": "~1.0",
+        "predis/predis": "1.0.3"
     },
 
     "require-dev": {
