@@ -7,6 +7,6 @@
  */
 namespace Search\Exception;
 
-class MissingDataException extends \Exception
+class MissingDataException extends \InvalidArgumentException
 {
 }

@@ -5,25 +5,25 @@
  * @since     Nov 2015
  * @author    Haydar KULEKCI <haydarkulekci@gmail.com>
  */
-namespace Search\Service\Factory;
+namespace Search\Client\Factory;
 
-use Search\Service\ElasticsearchClient;
+use Search\Client\ElasticClient;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class ElasticsearchClientFactory implements FactoryInterface
+class ElasticClientFactory implements FactoryInterface
 {
     /**
      * Create elastica client
      *
      * @param ServiceLocatorInterface $sm
-     * @return ElasticsearchClient
+     * @return ElasticClient
      */
     public function createService(ServiceLocatorInterface $sm)
     {
         $config        = $sm->get('Config');
         $clientConfig  = isset($config['elastica']) ? $config['elastica'] : array();
 
-        return new ElasticsearchClient($clientConfig);
+        return new ElasticClient($clientConfig);
     }
 }

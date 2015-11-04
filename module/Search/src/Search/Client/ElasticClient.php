@@ -5,10 +5,10 @@
  * @since     Oct 2015
  * @author    Haydar KULEKCI <haydarkulekci@gmail.com>
  */
-namespace Search\Service;
+namespace Search\Client;
 
 use Elastica\Client as ElasticaClient;
 
-class ElasticsearchClient extends ElasticaClient
+class ElasticClient extends ElasticaClient
 {
 }

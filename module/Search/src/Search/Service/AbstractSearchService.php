@@ -7,12 +7,15 @@
  */
 namespace Search\Service;
 
-class AbstractSearchService
+use Search\Client\SearchClientInterface;
+use Search\Client\SearchInterface;
+
+class AbstractSearchService implements SearchInterface
 {
     /**
-     * ElasticsearchClient $searcher
+     * ElasticsearchClient $client
      */
-    protected $searcher;
+    protected $client;
 
     /**
      * @var string|array
@@ -26,23 +29,23 @@ class AbstractSearchService
 
     /**
      *
-     * @param  ElasticsearchClient   $searcher
+     * @param  ElasticsearchClient   $client
      */
-    public function __construct(ElasticsearchClient $searcher)
+    public function __construct(SearchClientInterface $client)
     {
-        $this->searcher = $searcher;
+        $this->client = $client;
     }
 
-    public function getSearcher()
+    public function getClient()
     {
-        return $this->searcher;
+        return $this->client;
     }
 
     /**
-     *  Return searcher index name
+     *  Return client index name
      *
      * @var         int    $version
-     * @return      string              Searcher Index Name
+     * @return      string              client Index Name
      */
     public function getIndexName($version = 1)
     {
@@ -65,7 +68,7 @@ class AbstractSearchService
      */
     public function getIndex($version = 1)
     {
-        return $this->searcher->getIndex($this->getIndexName($version));
+        return $this->client->getIndex($this->getIndexName($version));
     }
 
 
@@ -96,7 +99,7 @@ class AbstractSearchService
      */
     public function getType($version = 1)
     {
-        return $this->searcher
+        return $this->client
             ->getIndex($this->getIndexName($version))
             ->getType($this->getTypeName($version));
     }

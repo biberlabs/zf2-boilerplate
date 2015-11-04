@@ -7,6 +7,7 @@
  */
 namespace Search\Index\Service;
 
+use Search\Exception\MissingDataException;
 use Search\Service\AbstractSearchService;
 
 class AbstractIndexService extends AbstractSearchService
