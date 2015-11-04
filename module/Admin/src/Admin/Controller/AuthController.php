@@ -7,11 +7,10 @@
  */
 namespace Admin\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
 use Zend\Session\Container;
 use Zend\View\Model\ViewModel;
 
-class AuthController extends AbstractActionController
+class AuthController extends BaseAdminController
 {
     /**
      * Login action for backoffice..
@@ -40,8 +39,11 @@ class AuthController extends AbstractActionController
                     $this->redirect()->toUrl('/');
                 } else {
                     $failed = _('Authentication failed. Please check your credentials.');
+                    //$this->flashMessenger()->addErrorMessage($failed);
                     $logger->info('Login attempt failed.', $data);
                 }
+            } else {
+                $this->formErrors($form->getMessages());
             }
         }
 

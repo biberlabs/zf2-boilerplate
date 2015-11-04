@@ -105,6 +105,7 @@ return array(
     'view_helpers' => array(
         'invokables' => array(
             'pageTitle'        => 'Admin\View\Helper\PageTitle',
+            'notification'     => 'Admin\View\Helper\Notification',
         ),
     ),
 

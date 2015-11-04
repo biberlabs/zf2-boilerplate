@@ -28,29 +28,24 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
             'type'    => 'Email',
             'options' => array(
                 'label'            => _('Email address'),
-                'id'               => 'email',
                 'placeholder'      => 'Your email address',
-                'twb-layout'       => self::LAYOUT_HORIZONTAL,
-                'column-size'      => 'sm-6',
-                'help-block'       => 'Demo user: admin@boilerplate.local',
-                'label_attributes' => array(
-                    'class' => 'col-sm-2',
-                ),
-            )
+                //'help-block'       => 'Demo user: admin@boilerplate.local',
+            ),
+            'attributes' => array(
+                'id'    => 'email',
+                'class' => 'form-control',
+            ),
         ));
  
         $this->add(array(
             'name'    => 'password',
             'type'    => 'password',
             'options' => array(
-                'label'            => _('Password'),
-                'twb-layout'       => self::LAYOUT_HORIZONTAL,
-                'column-size'      => 'sm-6',
-                'help-block'       => 'Demo pass: TestPass!',
-                'label_attributes' => array(
-                    'class' => 'col-sm-2',
-                ),
-            )
+                'label'  => _('Password'),
+            ),
+            'attributes' => array(
+                'class' => 'form-control',
+            ),
        ));
        
         $this->add(array(
@@ -74,13 +69,9 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
                     'wordLen'    => 6,
                     'expiration' => 600,
                     ),
-                'twb-layout'       => self::LAYOUT_HORIZONTAL,
-                'label_attributes' => array(
-                    'class' => 'col-sm-2',
-                ),
-                'column-size'      => 'sm-6',
                 ),
             'attributes' => array(
+                'class'       => 'form-control',
                 'placeholder' => _('Please type the word above'),
                 ),
             )
@@ -96,8 +87,6 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
             ),
             'options' => array(
                 'label'       => _('Login'),
-                'twb-layout'  => self::LAYOUT_HORIZONTAL,
-                'column-size' => 'sm-2 col-sm-offset-2'
                 )
             )
         );

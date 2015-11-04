@@ -7,16 +7,8 @@
  */
 namespace Admin\Form;
 
-use TwbBundle\Form\View\Helper\TwbBundleForm as TwbForm;
 use Zend\Form\Form;
  
 class BaseForm extends Form
 {
-    const LAYOUT_HORIZONTAL = TwbForm::LAYOUT_HORIZONTAL;
-    const LAYOUT_INLINE     = TwbForm::LAYOUT_INLINE;
-
-    public function __construct($name = null, $options = array())
-    {
-        return parent::__construct($name, $options);
-    }
 }

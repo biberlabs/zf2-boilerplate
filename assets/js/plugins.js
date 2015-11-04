@@ -21,4 +21,4 @@
     }
 }());
 
-// Place any jQuery/helper plugins in here.
+// Place any minimal helper plugins/methods in here.
