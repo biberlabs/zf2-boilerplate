@@ -38,3 +38,6 @@ public/crossdomain.xml
 public/favicon.ico
 public/humans.txt
 public/robots.txt
+
+# ZF2 Configs ignore
+config/autoload/*.php
