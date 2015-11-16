@@ -117,16 +117,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.4.2",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "8c434000f420ade76a07c64cbe08ca47e5c101ca"
+                "reference": "2b9cec5a5e722010cbebc91713d4c11eaa064d5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/8c434000f420ade76a07c64cbe08ca47e5c101ca",
-                "reference": "8c434000f420ade76a07c64cbe08ca47e5c101ca",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/2b9cec5a5e722010cbebc91713d4c11eaa064d5e",
+                "reference": "2b9cec5a5e722010cbebc91713d4c11eaa064d5e",
                 "shasum": ""
             },
             "require": {
@@ -147,8 +147,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Doctrine\\Common\\Cache\\": "lib/"
+                "psr-4": {
+                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -183,7 +183,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-08-31 12:36:41"
+            "time": "2015-11-02 18:35:48"
         },
         {
             "name": "doctrine/collections",
@@ -553,16 +553,16 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604"
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
-                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
             "require": {
@@ -574,7 +574,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -616,7 +616,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2014-12-20 21:24:13"
+            "time": "2015-11-06 14:35:42"
         },
         {
             "name": "doctrine/instantiator",
@@ -1345,16 +1345,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.16",
+            "version": "4.8.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "625f8c345606ed0f3a141dfb88f4116f0e22978e"
+                "reference": "fa33d4ad96481b91df343d83e8c8aabed6b1dfd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/625f8c345606ed0f3a141dfb88f4116f0e22978e",
-                "reference": "625f8c345606ed0f3a141dfb88f4116f0e22978e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fa33d4ad96481b91df343d83e8c8aabed6b1dfd3",
+                "reference": "fa33d4ad96481b91df343d83e8c8aabed6b1dfd3",
                 "shasum": ""
             },
             "require": {
@@ -1413,7 +1413,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-23 06:48:33"
+            "time": "2015-11-11 11:32:49"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1844,16 +1844,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v2.7.5",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "06cb17c013a82f94a3d840682b49425cd00a2161"
+                "reference": "5efd632294c8320ea52492db22292ff853a43766"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/06cb17c013a82f94a3d840682b49425cd00a2161",
-                "reference": "06cb17c013a82f94a3d840682b49425cd00a2161",
+                "url": "https://api.github.com/repos/symfony/console/zipball/5efd632294c8320ea52492db22292ff853a43766",
+                "reference": "5efd632294c8320ea52492db22292ff853a43766",
                 "shasum": ""
             },
             "require": {
@@ -1862,7 +1862,6 @@
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/event-dispatcher": "~2.1",
-                "symfony/phpunit-bridge": "~2.7",
                 "symfony/process": "~2.1"
             },
             "suggest": {
@@ -1897,27 +1896,24 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-09-25 08:32:23"
+            "time": "2015-10-20 14:38:46"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.7.5",
+            "version": "v2.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "31cb2ad0155c95b88ee55fe12bc7ff92232c1770"
+                "reference": "eca9019c88fbe250164affd107bc8057771f3f4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/31cb2ad0155c95b88ee55fe12bc7ff92232c1770",
-                "reference": "31cb2ad0155c95b88ee55fe12bc7ff92232c1770",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/eca9019c88fbe250164affd107bc8057771f3f4d",
+                "reference": "eca9019c88fbe250164affd107bc8057771f3f4d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.9"
-            },
-            "require-dev": {
-                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -1946,7 +1942,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-09-14 14:14:09"
+            "time": "2015-10-11 09:39:48"
         },
         {
             "name": "zendframework/zend-authentication",
@@ -4954,18 +4950,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghislainf/zf2-whoops.git",
-                "reference": "5339c6d7e18f2c526827025327e36515634f1465"
+                "reference": "9235fe04336f25efbb2f5a1355cf510b668a7f58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghislainf/zf2-whoops/zipball/5339c6d7e18f2c526827025327e36515634f1465",
-                "reference": "5339c6d7e18f2c526827025327e36515634f1465",
+                "url": "https://api.github.com/repos/ghislainf/zf2-whoops/zipball/9235fe04336f25efbb2f5a1355cf510b668a7f58",
+                "reference": "9235fe04336f25efbb2f5a1355cf510b668a7f58",
                 "shasum": ""
             },
             "require": {
                 "filp/whoops": "1.*",
                 "php": ">=5.3.3",
-                "zendframework/zendframework": "2.*"
+                "zendframework/zend-config": "*",
+                "zendframework/zend-console": "*",
+                "zendframework/zend-eventmanager": "*",
+                "zendframework/zend-mvc": "*"
             },
             "type": "module",
             "autoload": {
@@ -4982,24 +4981,22 @@
             ],
             "authors": [
                 {
-                    "name": "Filipe Dobreira",
-                    "homepage": "https://github.com/filp",
-                    "role": "Developer"
+                    "name": "Balázs Németh",
+                    "email": "zsilbi@zsilbi.hu"
                 },
                 {
                     "name": "Ghislain de Fontenay",
-                    "email": "ghislain.de.fontenay@gmail.com",
                     "homepage": "http://www.ghislainf.me/",
                     "role": "Developer"
                 },
                 {
-                    "name": "Balázs Németh",
-                    "email": "zsilbi@zsilbi.hu"
+                    "name": "Filipe Dobreira",
+                    "homepage": "https://github.com/filp"
                 }
             ],
             "description": "PHP whoops error on ZF2 framework",
             "homepage": "https://github.com/ghislainf/zf2-whoops",
-            "time": "2014-04-03 16:29:25"
+            "time": "2015-11-12 14:26:15"
         },
         {
             "name": "hounddog/doctrine-data-fixture-module",
@@ -5056,16 +5053,16 @@
         },
         {
             "name": "san/san-session-toolbar",
-            "version": "0.2.0",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samsonasik/SanSessionToolbar.git",
-                "reference": "c091c55b0c537cd65c14eebab5e6b4cf491cb5b5"
+                "reference": "a8cb9496ce61e518ec3260ae4b901db2034c6925"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samsonasik/SanSessionToolbar/zipball/c091c55b0c537cd65c14eebab5e6b4cf491cb5b5",
-                "reference": "c091c55b0c537cd65c14eebab5e6b4cf491cb5b5",
+                "url": "https://api.github.com/repos/samsonasik/SanSessionToolbar/zipball/a8cb9496ce61e518ec3260ae4b901db2034c6925",
+                "reference": "a8cb9496ce61e518ec3260ae4b901db2034c6925",
                 "shasum": ""
             },
             "require": {
@@ -5114,7 +5111,7 @@
                 "session",
                 "zf2"
             ],
-            "time": "2015-07-22 16:50:32"
+            "time": "2015-10-31 19:26:30"
         },
         {
             "name": "snapshotpl/zf-snap-event-debugger",
