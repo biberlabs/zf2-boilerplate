@@ -5,6 +5,7 @@
  * @since     Oct 2015
  * @author    Haydar KULEKCI <haydarkulekci@gmail.com>
  */
+namespace Search\Service\Interfaces;
 
 interface SearchServiceInterface
 {

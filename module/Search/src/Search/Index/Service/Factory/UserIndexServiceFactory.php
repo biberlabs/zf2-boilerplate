@@ -21,7 +21,7 @@ class UserIndexServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $sm)
     {
-        $userIndexService = new UserIndexService($sm->get('search.service.elastica'));
+        $userIndexService = new UserIndexService($sm->get('search.client.elastic'));
 
         return $userIndexService;
     }

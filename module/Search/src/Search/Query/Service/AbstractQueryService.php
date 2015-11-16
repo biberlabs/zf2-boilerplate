@@ -73,7 +73,7 @@ class AbstractQueryService extends AbstractSearchService
             }
         }
 
-        return $this->getSearcher()
+        return $this->getClient()
                       ->getIndex($this->getIndexName($version))
                       ->getType($this->getTypeName($version))
                       ->search($query);

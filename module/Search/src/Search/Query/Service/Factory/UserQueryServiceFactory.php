@@ -21,7 +21,7 @@ class UserQueryServiceFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $sm)
     {
-        $userQueryService = new UserQueryService($sm->get('search.service.elastica'));
+        $userQueryService = new UserQueryService($sm->get('search.client.elastic'));
 
         return $userQueryService;
     }
