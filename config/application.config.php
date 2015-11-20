@@ -14,12 +14,12 @@ define('APPLICATION_ENV', $env);
  * you, administrators and staff.
  */
 define('APP_URI_FRONTEND', 'www.boilerplate.local');
-define('APP_URI_API',      'api.boilerplate.local');
-define('APP_URI_ADMIN',    'admin.boilerplate.local');
+define('APP_URI_API', 'api.boilerplate.local');
+define('APP_URI_ADMIN', 'admin.boilerplate.local');
 
 /**
- * You need to define three virtual hosts for the domains above in your 
- * HTTP server respectively and each request should be handled by correct 
+ * You need to define three virtual hosts for the domains above in your
+ * HTTP server respectively and each request should be handled by correct
  * virtual server, not randomly.
  *
  * Setting correct/separate server names in HTTP level and getting ready to run same
@@ -44,6 +44,12 @@ $modules = [
         ],
     // Load only on api.* requests
     APP_URI_API => [
+        'ZF\ApiProblem',
+        'ZF\ContentNegotiation',
+        'ZF\Hal',
+        'ZF\Rest',
+        'ZF\OAuth2',
+        'ZF\MvcAuth',
         'Api',
         ],
     // Load only on admin.* requests
@@ -82,7 +88,9 @@ if (PHP_SAPI === 'cli') {
 
 if (APPLICATION_ENV === 'development') {
     // Load extra modules on development environment
-    $modulesToLoad = array_merge($modulesToLoad, $modules['development']);
+    if (APP_SERVER_NAME !== APP_URI_API) {
+        $modulesToLoad = array_merge($modulesToLoad, $modules['development']);
+    }
     // Disable configuration and module caching
     $configCache = false;
     $moduleCache = false;
