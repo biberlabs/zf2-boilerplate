@@ -3,48 +3,20 @@
  * Core module configuration
  */
 return array(
-    'router' => array(
-        'routes' => array(
-            'home' => array(
-                'type'    => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/',
-                    'defaults' => array(
-                        'controller' => 'Core\Controller\Index',
-                        'action'     => 'index',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes'  => array(
-                    'automatch' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'       => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
-
     'service_manager' => array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory', // Zend Built-in cache factory
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
         'factories' => array(
-            'MvcTranslator' => 'Core\Service\Factory\TranslatorServiceFactory',
-            'core.service.auth' => 'Core\Service\Factory\AuthenticationServiceFactory',
+            'MvcTranslator'             => 'Core\Service\Factory\TranslatorServiceFactory',
+            'core.service.auth'         => 'Core\Service\Factory\AuthenticationServiceFactory',
             'core.service.registration' => 'Core\Service\Factory\RegistrationServiceFactory',
         ),
 
         'aliases' => array(
             'translator' => 'MvcTranslator',
-            // Aliasing the Zend\Authentication\AuthenticationService will allow it to be 
+            // Aliasing the Zend\Authentication\AuthenticationService will allow it to be
             // recognised by the ZF2 view helper.
             'Zend\Authentication\AuthenticationService' => 'core.service.auth',
         ),
@@ -102,26 +74,6 @@ return array(
                 )
             ),
     ),
-    'controllers' => array(
-        'invokables' => array(
-            'Core\Controller\Index' => 'Core\Controller\IndexController'
-        ),
-    ),
-    'view_manager' => array(
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
-        'doctype'                  => 'HTML5',
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
-        'template_map'             => array(
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
-        ),
-        'template_path_stack' => array(
-            __DIR__ . '/../view',
-        ),
-    ),
 
     // DOCTRINE - PERSISTENCY
     'doctrine' => array(
@@ -178,21 +130,21 @@ return array(
             ),
             'processors' => array(
                 array(
-                    'name' => 'Core\Log\Processor\EventType',
+                    'name'     => 'Core\Log\Processor\EventType',
                     'priority' => 1000,
-                    'options' => array(),
+                    'options'  => array(),
                 ),
             ),
         ),
     ),
 
-    // Placeholder for console routes
-    'console' => array(
-        'router' => array(
-            'routes' => array(
-            ),
-        ),
-    ),
+    // // Placeholder for console routes
+    // 'console' => array(
+    //     'router' => array(
+    //         'routes' => array(
+    //         ),
+    //     ),
+    // ),
 
     'caches' => array(
         // Can be called directly via SM in the name of 'core.cache.memcached'
@@ -234,8 +186,8 @@ return array(
             ),
         'core.cache.redis' => array(
             'adapter' => array(
-                'name' => 'redis',
-                'options' => array (
+                'name'    => 'redis',
+                'options' => array(
                     'server' => [
                             'host' => '127.0.0.1',
                             'port' => 6379,

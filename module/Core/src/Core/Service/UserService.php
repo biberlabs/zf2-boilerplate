@@ -8,8 +8,8 @@
 namespace Core\Service;
 
 use Core\Entity\User;
-use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 use Core\Traits\ObjectManagerAwareTrait;
+use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 
 class UserService extends AbstractService implements ObjectManagerAwareInterface
 {
