@@ -1,6 +1,8 @@
 <?php
 /**
  * Abstract Search Service
+ * You can use this abstract class create a QueryServices.
+ * This query services search your datas on Elasticsearch.
  *
  * @since     Oct 2015
  * @author    Haydar KULEKCI <haydarkulekci@gmail.com>
@@ -20,6 +22,14 @@ class AbstractQueryService extends AbstractSearchService
     const VIEW_SHORT  = 'short';
     const VIEW_DETAIL = 'detail';
 
+    /**
+     * Creating a Zend\Paginator\Paginator from Elastica\ResultSet.
+     * This paginator can be passed directly zf-hal or whereever you want.
+     * This method use ElasticsearchAdapter as ArrayAdapter
+     *
+     * @param  ResultSet    $resultSet      Elastica result data
+     * @return Paginator    Created paginator from resultset with ElasticsearchAdapter.
+     */
     public function buildPaginator(Resultset $resultSet)
     {
         $itemsPerPage = empty($resultSet->getQuery()->getParam('size')) ? $this->getDefaultPageSize() : $resultSet->getQuery()->getParam('size');
@@ -53,9 +63,13 @@ class AbstractQueryService extends AbstractSearchService
      *      $this->doSearch($mainQuery, 1, 10);
      *
      * @param  ElasticaQuery    $query
+     * @param  int              $page
+     * @param  int              $itemPerPage
+     * @param  string           $type           Already defined strings at self.
+     * @param  int              $version        Search version for index and type
      * @return Resultset
      */
-    public function doSearch(ElasticaQuery $query, $page, $itemsPerPage, $type = self::VIEW_LIST, $version = 1)
+    protected function doSearch(ElasticaQuery $query, $page, $itemsPerPage, $type = self::VIEW_LIST, $version = 1)
     {
         $query->setFrom(($page - 1) * $itemsPerPage)
               ->setSize($itemsPerPage);
@@ -74,9 +88,9 @@ class AbstractQueryService extends AbstractSearchService
         }
 
         return $this->getClient()
-                      ->getIndex($this->getIndexName($version))
-                      ->getType($this->getTypeName($version))
-                      ->search($query);
+                    ->getIndex($this->getIndexName($version))
+                    ->getType($this->getTypeName($version))
+                    ->search($query);
     }
 
     /**
