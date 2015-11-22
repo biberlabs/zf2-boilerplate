@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TODO - Use schema name when data-fixtures#192 merged
  * @see https://github.com/doctrine/data-fixtures/pull/192
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Core\Entity\Repository\UserRepository")
  * @ORM\Table(name="users")
  */
 class User extends Base

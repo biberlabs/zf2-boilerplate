@@ -8,10 +8,12 @@ return array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory', // Zend Built-in cache factory
             'Zend\Log\LoggerAbstractServiceFactory',
         ),
+        
         'factories' => array(
             'MvcTranslator'             => 'Core\Service\Factory\TranslatorServiceFactory',
             'core.service.auth'         => 'Core\Service\Factory\AuthenticationServiceFactory',
             'core.service.registration' => 'Core\Service\Factory\RegistrationServiceFactory',
+            'core.service.user'         => 'Core\Service\Factory\UserServiceFactory',
         ),
 
         'aliases' => array(
@@ -25,10 +27,6 @@ return array(
             'Core\Service\Initializers\CacheAwareInitializer',
             'Core\Service\Initializers\LoggerAwareInitializer',
             'Core\Service\Initializers\ObjectManagerAwareInitializer',
-        ),
-
-        'invokables' => array(
-            'core.service.user' => 'Core\Service\UserService',
         ),
     ),
 

@@ -9,17 +9,35 @@ namespace Core\Service;
 
 use Core\Entity\User;
 use Core\Traits\ObjectManagerAwareTrait;
-use DoctrineModule\Persistence\ObjectManagerAwareInterface;
+use Core\Entity\Repository\UserRepository;
 
-class UserService extends AbstractService implements ObjectManagerAwareInterface
+class UserService extends AbstractService
 {
-    use ObjectManagerAwareTrait;
+    private $userRepository;
 
+    /**
+     * Constructor.
+     * 
+     * @param UserRepository $userRepository User repository instance.
+     */
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * Changes given user's default locale.
+     * 
+     * @param  User   $user      User entity to update
+     * @param  string $newLocale
+     * 
+     * @return boolean
+     */
     public function changeLocaleByUser(User $user, $newLocale)
     {
         $user->setLanguage($newLocale);
-        
-        $this->getObjectManager()->flush($user);
+
+        $this->userRepository->update($user);
 
         return true;
     }
