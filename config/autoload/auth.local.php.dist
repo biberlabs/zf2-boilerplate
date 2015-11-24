@@ -5,20 +5,5 @@
 
 return [
     'zf-oauth2' => [
-        // You can specify a general adapter for all data operations.
-        // Or you can specify one for each data class.
-        'storage' => [
-            'client_credentials' => \Api\OAuth\Storage\Adapter\RedisAdapter::class,
-            'user_credentials'   => \Api\OAuth\Storage\Adapter\RedisAdapter::class,
-            'access_token'       => \Api\OAuth\Storage\Adapter\RedisAdapter::class,
-            'scope'              => \Api\OAuth\Storage\Adapter\RedisAdapter::class,
-            'authorization_code' => \Api\OAuth\Storage\Adapter\RedisAdapter::class,
-            'refresh_token'      => \Api\OAuth\Storage\Adapter\RedisAdapter::class,
-        ],
-    ],
-    'service_manager' => [
-        'factories' => [
-            \Api\OAuth\Storage\Adapter\RedisAdapter::class => \Api\OAuth\Storage\Adapter\RedisAdapterFactory::class,
-        ],
     ],
 ];
