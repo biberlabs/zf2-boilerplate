@@ -54,7 +54,7 @@ class Pdo extends PdoStorage
      */
     public function getUser($username)
     {
-        $stmt = $this->db->prepare('SELECT * from users where email = :username');
+        $stmt = $this->db->prepare('SELECT id, email, language from users where email = :username');
         $stmt->execute(array('username' => $username));
 
         if (!$userInfo = $stmt->fetch(\PDO::FETCH_ASSOC)) {
@@ -69,17 +69,6 @@ class Pdo extends PdoStorage
 
     public function setUser($username, $password, $firstName = null, $lastName = null)
     {
-        $firstNameSurname = (!empty($firstName) ? $firstName : '') . (!empty($lastName) ? ' ' .$lastName : '');
-        // do not store in plaintext
-        $password = sha1($password);
-
-        // if it exists, update it.
-        if ($this->getUser($username)) {
-            $stmt = $this->db->prepare('UPDATE users SET password=:password, name_surname=:firstNameSurname where email = :username');
-        } else {
-            $stmt = $this->db->prepare('INSERT INTO users (username, password, name_surname) VALUES (:username, :password, :firstNameSurname)');
-        }
-
-        return $stmt->execute(compact('username', 'password', 'firstNameSurname'));
+        throw new \Exception('You can not create user this way.');
     }
 }

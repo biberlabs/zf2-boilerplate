@@ -155,10 +155,10 @@ return [
     ],
     'zf-oauth2' => [
         'storage' => [
-            'client_credentials' => Api\OAuth\Storage\Adapter\Pdo::class,
-            'user_credentials'   => Api\OAuth\Storage\Adapter\Pdo::class,
+            'client_credentials' => \Api\OAuth\Storage\Adapter\Pdo::class,
+            'user_credentials'   => \Api\OAuth\Storage\Adapter\Pdo::class,
             'access_token'       => \Api\OAuth\Storage\Adapter\Redis::class,
-            'scope'              => Api\OAuth\Storage\Adapter\Pdo::class,
+            'scope'              => \Api\OAuth\Storage\Adapter\Pdo::class,
             'authorization_code' => \Api\OAuth\Storage\Adapter\Redis::class,
             'refresh_token'      => \Api\OAuth\Storage\Adapter\Redis::class,
         ],
