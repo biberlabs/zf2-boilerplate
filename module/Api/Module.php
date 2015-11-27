@@ -30,7 +30,7 @@ class Module
         $eventManager = $event->getApplication()->getEventManager();
         $eventManager->attach(
             MvcAuthEvent::EVENT_AUTHENTICATION_POST,
-            array($this, 'bindIdentityModel'),
+            array($this, 'eventAuthenticationPost'),
             1
         );
 
@@ -45,7 +45,7 @@ class Module
         );
     }
 
-    public function bindIdentityModel(MvcAuthEvent $event)
+    public function eventAuthenticationPost(MvcAuthEvent $event)
     {
         $identity = $event->getIdentity();
 

@@ -122,20 +122,12 @@ return [
     ),
     'zf-mvc-auth' => [
         'authorization'  => [
-            'Api\V1\User\Controller' => [
-                'collection' => [
-                    'GET'    => true,
-                    'POST'   => true,
-                    'PUT'    => false,
-                    'PATCH'  => false,
-                    'DELETE' => false,
-                ],
-                'entity' => [
-                    'GET'    => true,
-                    'POST'   => true,
-                    'PUT'    => false,
-                    'PATCH'  => false,
-                    'DELETE' => false,
+            'deny_by_default'              => true,
+            'ZF\OAuth2\Controller\Auth'    => [
+                'actions' => [
+                    'token' => [
+                        'POST' => false,
+                    ],
                 ],
             ],
         ],
@@ -151,7 +143,6 @@ return [
             ],
             'access_lifetime' => 7200,
         ],
-        'deny_by_default' => true,
     ],
     'zf-oauth2' => [
         'storage' => [

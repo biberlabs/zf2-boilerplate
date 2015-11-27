@@ -54,7 +54,7 @@ class Pdo extends PdoStorage
      */
     public function getUser($username)
     {
-        $stmt = $this->db->prepare('SELECT id, email, language from users where email = :username');
+        $stmt = $this->db->prepare('SELECT id, email, password, language from users where email = :username');
         $stmt->execute(array('username' => $username));
 
         if (!$userInfo = $stmt->fetch(\PDO::FETCH_ASSOC)) {
