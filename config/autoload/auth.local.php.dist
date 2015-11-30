@@ -1,0 +1,9 @@
+<?php
+/**
+ * Auth Configuration
+ */
+
+return [
+    'zf-oauth2' => [
+    ],
+];

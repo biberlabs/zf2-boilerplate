@@ -8,9 +8,9 @@
 namespace Core\Service;
 
 use Core\Entity\User as UserEntity;
-use Zend\Authentication\AuthenticationService;
-use DoctrineModule\Persistence\ObjectManagerAwareInterface;
 use Core\Traits\ObjectManagerAwareTrait;
+use DoctrineModule\Persistence\ObjectManagerAwareInterface;
+use Zend\Authentication\AuthenticationService;
 
 class RegistrationService extends AbstractService implements ObjectManagerAwareInterface
 {
@@ -62,14 +62,14 @@ class RegistrationService extends AbstractService implements ObjectManagerAwareI
      *
      * @static
      *
-     * @param  UserEntity $user
+     * @param  string     $passwordHashed
      * @param  string     $passwordGiven
      *
      * @return boolean
      */
-    public static function verifyPassword(UserEntity $user, $passwordGiven)
+    public static function verifyRawPassword($passwordHashed, $passwordGiven)
     {
-        $verified = password_verify($passwordGiven, $user->getPassword());
+        $verified = password_verify($passwordGiven, $passwordHashed);
 
         if ($verified) {
             // You may also want to check user status here.
@@ -78,6 +78,24 @@ class RegistrationService extends AbstractService implements ObjectManagerAwareI
         }
 
         return false;
+    }
+
+    /**
+     * Verifies given password by given user credentials (using password salt)
+     * when user trying to login the system first time.
+     *
+     * Called by doctrinemodule's authentication configuration on login.
+     *
+     * @static
+     *
+     * @param  UserEntity $user
+     * @param  string     $passwordGiven
+     *
+     * @return boolean
+     */
+    public static function verifyPassword(UserEntity $user, $passwordGiven)
+    {
+        return self::verifyRawPassword($user->getPassword(), $passwordGiven);
     }
 
     /**
