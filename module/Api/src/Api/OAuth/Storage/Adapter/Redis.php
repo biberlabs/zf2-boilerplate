@@ -21,4 +21,18 @@ use OAuth2\Storage\Redis as RedisStorage;
  */
 class Redis extends RedisStorage
 {
+    public function getUserData($username)
+    {
+        return $this->getValue($this->config['user_data_cache_key'].$username);
+    }
+
+    public function setUserData($username, $userInfo)
+    {
+        return $this->setValue($this->config['user_data_cache_key'].$username, $userInfo);
+    }
+
+    public function expireUserData($username)
+    {
+        return $this->expireValue($this->config['user_data_cache_key'].$username);
+    }
 }

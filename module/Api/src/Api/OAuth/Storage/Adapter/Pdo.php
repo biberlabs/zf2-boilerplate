@@ -7,6 +7,7 @@
  */
 namespace Api\OAuth\Storage\Adapter;
 
+use Api\OAuth\Storage\Adapter\Redis as RedisAdapter;
 use OAuth2\Storage\Pdo as PdoStorage;
 
 /**
@@ -27,11 +28,27 @@ use OAuth2\Storage\Pdo as PdoStorage;
  *
  * Redis Data Example Run on Command Line Interface:
  *
- *   SET oauth_clients:TestClient '{"client_id":"TestClient","client_secret":"TestSecret","username":"oytun","password":"tez"}'
+ *   SET oauth_clients:TestClient '{"client_id":"TestClient","client_secret":"TestSecret","username":"test","password":"pass"}'
  *
  */
 class Pdo extends PdoStorage
 {
+    /**
+     *
+     *  @var RedisAdapter Redis Adapter
+     */
+    protected $redis;
+
+    public function setRedis($redis)
+    {
+        $this->redis  = $redis;
+    }
+
+    public function getRedis()
+    {
+        return $this->redis;
+    }
+
     public function checkUserCredentials($username, $password)
     {
         if ($user = $this->getUser($username)) {
@@ -54,14 +71,26 @@ class Pdo extends PdoStorage
      */
     public function getUser($username)
     {
-        $stmt = $this->db->prepare('SELECT id, email, password, language from users where email = :username');
+        $userInfo = $this->getRedis()->getUserData($username);
+        if ($userInfo) {
+            $userInfo['from_cache'] = true;
+
+            return array_merge(array(
+                'user_id' => $username
+            ), $userInfo);
+        }
+
+        $stmt = $this->db->prepare('SELECT id, email, password, language, registration_date from users where email = :username');
         $stmt->execute(array('username' => $username));
 
         if (!$userInfo = $stmt->fetch(\PDO::FETCH_ASSOC)) {
             return false;
         }
 
+        $this->getRedis()->setUserData($username, $userInfo);
         // the default behavior is to use "username" as the user_id
+        $userInfo['from_cache'] = false;
+
         return array_merge(array(
             'user_id' => $username
         ), $userInfo);

@@ -32,7 +32,7 @@ class RedisFactory implements FactoryInterface
         try {
             $redisClient = new \Predis\Client($config['caches']['core.cache.redis']['adapter']['options']['server']);
 
-            return new Redis($redisClient);
+            return new Redis($redisClient, ['user_data_cache_key' => 'user_data_cache:']);
         } catch (\Exception $e) {
             throw new CacheException('Cache client exception', 500, $e);
         }

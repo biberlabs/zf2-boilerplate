@@ -28,15 +28,15 @@ class Module
     public function onBootstrap(MvcEvent $event)
     {
         $eventManager = $event->getApplication()->getEventManager();
+
         $eventManager->attach(
             MvcAuthEvent::EVENT_AUTHENTICATION_POST,
             array($this, 'eventAuthenticationPost'),
-            1
+            900
         );
 
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-
 
         $event->getApplication()->getEventManager()->attach(
             MvcEvent::EVENT_DISPATCH_ERROR,
@@ -47,14 +47,22 @@ class Module
 
     public function eventAuthenticationPost(MvcAuthEvent $event)
     {
-        $identity = $event->getIdentity();
+        $identity      = $event->getIdentity();
+        $oauth2Closure = $event->getMvcEvent()
+                               ->getApplication()
+                               ->getServiceManager()
+                               ->get(\ZF\OAuth2\Service\OAuth2Server::class);
 
         if (!!$identity) {
-            // Manipulate the identity here... Switch it with or add your own model etc.
+            $userData = $oauth2Closure()->getStorage('user_credentials')->getUser($identity->getName());
+            
+            $identity = new \ZF\MvcAuth\Identity\AuthenticatedIdentity($userData);
             $event->setIdentity($identity);
+            //MvcEvent did not understand when manipulated MvcAuthEvent identity
+            $event->getMvcEvent()->setParam('ZF\MvcAuth\Identity', $identity);
         }
 
-        return true;
+        return $event;
     }
 
     public function dispatchError(MvcEvent $event)
@@ -75,7 +83,7 @@ class Module
             } elseif ($exception instanceof \Exception) {
                 $className = explode('\\', get_class($exception));
                 $problem   = new ApiProblem($exception->getCode(), end($className) . ' error.');
-                $logger    = $event->getTarget()->getServiceLocator()->get('logger');
+                $logger    = $event->getTarget()->getServiceManager()->get('logger');
                 $logger->err($exception->getMessage(), array(
                     'controller' => $event->getControllerClass(),
                     ));

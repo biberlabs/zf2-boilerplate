@@ -26,7 +26,10 @@ class PdoFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $services)
     {
         try {
-            return new PdoAdapter($services->get('doctrine.entitymanager.orm_default')->getConnection()->getWrappedConnection());
+            $pdoAdapter  = new PdoAdapter($services->get('doctrine.entitymanager.orm_default')->getConnection()->getWrappedConnection());
+            $pdoAdapter->setRedis($services->get(\Api\OAuth\Storage\Adapter\Redis::class));
+
+            return $pdoAdapter;
         } catch (\Exception $e) {
             throw new DatabaseException('Database connection did not created!', 500, $e);
         }
