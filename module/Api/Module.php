@@ -47,6 +47,7 @@ class Module
 
     public function eventAuthenticationPost(MvcAuthEvent $event)
     {
+        // Manupilating Identity Data
         $identity      = $event->getIdentity();
         $oauth2Closure = $event->getMvcEvent()
                                ->getApplication()
@@ -54,10 +55,14 @@ class Module
                                ->get(\ZF\OAuth2\Service\OAuth2Server::class);
 
         if (!!$identity) {
-            $userData = $oauth2Closure()->getStorage('user_credentials')->getUser($identity->getName());
-            
-            $identity = new \ZF\MvcAuth\Identity\AuthenticatedIdentity($userData);
-            $event->setIdentity($identity);
+            if ($identity instanceof \ZF\MvcAuth\Identity\AuthenticatedIdentity) {
+                $userData = $oauth2Closure()->getStorage('user_credentials')->getUser($identity->getName());
+                if (is_array($identity->getAuthenticationIdentity())) {
+                    $userData = array_merge($userData, $identity->getAuthenticationIdentity());
+                }
+                $identity = new \ZF\MvcAuth\Identity\AuthenticatedIdentity($userData);
+                $event->setIdentity($identity);
+            }
             //MvcEvent did not understand when manipulated MvcAuthEvent identity
             $event->getMvcEvent()->setParam('ZF\MvcAuth\Identity', $identity);
         }
@@ -83,6 +88,13 @@ class Module
             } elseif ($exception instanceof \Exception) {
                 $className = explode('\\', get_class($exception));
                 $problem   = new ApiProblem($exception->getCode(), end($className) . ' error.');
+
+                if ($event->getTarget() instanceof ServiceLocatorAwareInterface) {
+                    $logger    = $event->getTarget()->getServiceLocator()->get('logger');
+                } else {
+                    $logger    = $event->getTarget()->getServiceManager()->get('logger');
+                }
+
                 $logger    = $event->getTarget()->getServiceManager()->get('logger');
                 $logger->err($exception->getMessage(), array(
                     'controller' => $event->getControllerClass(),
