@@ -54,7 +54,7 @@ class BaseFixture extends AbstractFixture implements OrderedFixtureInterface, Se
      * Overrided by all derived childs.
      *
      * @param  ObjectManager $manager
-     * @return voşid
+     * @return void
      */
     public function load(ObjectManager $manager)
     {
