@@ -21,10 +21,9 @@ return [
             ), // end of api.rest.user
             'oauth' => array(
                 'options' => array(
-                    'spec'  => '%oauth%',
-                    'regex' => '(?P<oauth>(/oauth))',
+                    'route'    => '/oauth',
                 ),
-                'type'         => 'regex', // regex type will be remove.
+                'type'         => 'Segment', // regex type will be remove.
                 'child_routes' => array(
                     'token' => array(
                         'type'    => 'Zend\Mvc\Router\Http\Literal',
@@ -126,6 +125,10 @@ return [
             'ZF\OAuth2\Controller\Auth'    => [
                 'actions' => [
                     'token' => [
+                        'POST' => false,
+                    ],
+                    'authorize' => [
+                        'GET'  => false,
                         'POST' => false,
                     ],
                 ],
