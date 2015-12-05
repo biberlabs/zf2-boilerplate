@@ -37,6 +37,7 @@ $modules = [
         'Core',
         'DoctrineModule',
         'DoctrineORMModule',
+        'Search',
         ],
     // Load only on www.* requests
     APP_URI_FRONTEND => [
