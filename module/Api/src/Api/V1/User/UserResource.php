@@ -8,6 +8,8 @@
 namespace Api\V1\User;
 
 use Core\Service\UserService;
+use Search\Query\Service\UserQueryService as UserSearchService;
+use ZF\ApiProblem\ApiProblem;
 use ZF\Rest\AbstractResourceListener;
 
 class UserResource extends AbstractResourceListener
@@ -18,11 +20,17 @@ class UserResource extends AbstractResourceListener
     protected $userService = null;
 
     /**
+     * @var UserService
+     */
+    protected $userSearchService = null;
+
+    /**
      * @param UserService   $userService
      */
-    public function __construct(UserService $userService)
+    public function __construct(UserService $userService, UserSearchService $userSearchService)
     {
-        $this->userService = $userService;
+        $this->userService       = $userService;
+        $this->userSearchService = $userSearchService;
     }
 
     /**
@@ -30,7 +38,13 @@ class UserResource extends AbstractResourceListener
      */
     public function fetch($id)
     {
-        return ['id' => $id, 'foo' => 'bar'];
+        try {
+            $data = $this->userSearchService->getById($id);
+        } catch (\Exception $e) {
+            return new ApiProblem($e->getCode(), $e->getMessage());
+        }
+
+        return $data;
     }
 
     /**
