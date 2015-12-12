@@ -64,7 +64,7 @@ class AbstractIndexService extends AbstractSearchService
     }
 
     /**
-     * Partial Update
+     * Deleting Document by DocId
      *
      * @param  string  $docId
      * @param  integer  $version

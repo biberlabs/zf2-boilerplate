@@ -36,8 +36,7 @@ class AbstractQueryService extends AbstractSearchService
     {
         try {
             return $this->getClient()
-                        ->getIndex($this->getIndexName($version))
-                        ->getType($this->getTypeName($version))
+                        ->getType($version)
                         ->getDocument($docId)->getData();
         } catch (\Elastica\Exception\ResponseException $e) {
             throw new SearchingException('Throwing exception while getting document!', $e->getCode(), $e);
