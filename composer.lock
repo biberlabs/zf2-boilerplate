@@ -166,33 +166,33 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.5.2",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "47c7128262da274f590ae6f86eb137a7a64e82af"
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/47c7128262da274f590ae6f86eb137a7a64e82af",
-                "reference": "47c7128262da274f590ae6f86eb137a7a64e82af",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/f8af318d14bdb0eff0336795b428b547bd39ccb6",
+                "reference": "f8af318d14bdb0eff0336795b428b547bd39ccb6",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2"
+                "php": "~5.5|~7.0"
             },
             "conflict": {
                 "doctrine/common": ">2.2,<2.4"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=3.7",
+                "phpunit/phpunit": "~4.8|~5.0",
                 "predis/predis": "~1.0",
                 "satooshi/php-coveralls": "~0.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.5.x-dev"
+                    "dev-master": "1.6.x-dev"
                 }
             },
             "autoload": {
@@ -232,7 +232,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-12-03 10:50:37"
+            "time": "2015-12-31 16:37:02"
         },
         {
             "name": "doctrine/collections",
@@ -302,16 +302,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "v2.5.2",
+            "version": "v2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "311001fd9865a4d0d59efff4eac6d7dcb3f5270c"
+                "reference": "10f1f19651343f87573129ca970aef1a47a6f29e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/311001fd9865a4d0d59efff4eac6d7dcb3f5270c",
-                "reference": "311001fd9865a4d0d59efff4eac6d7dcb3f5270c",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/10f1f19651343f87573129ca970aef1a47a6f29e",
+                "reference": "10f1f19651343f87573129ca970aef1a47a6f29e",
                 "shasum": ""
             },
             "require": {
@@ -371,24 +371,24 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2015-12-04 12:49:42"
+            "time": "2015-12-25 13:10:16"
         },
         {
             "name": "doctrine/dbal",
-            "version": "v2.5.2",
+            "version": "v2.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "01dbcbc5cd0a913d751418e635434a18a2f2a75c"
+                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/01dbcbc5cd0a913d751418e635434a18a2f2a75c",
-                "reference": "01dbcbc5cd0a913d751418e635434a18a2f2a75c",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
+                "reference": "abbdfd1cff43a7b99d027af3be709bc8fc7d4769",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": ">=2.4,<2.6-dev",
+                "doctrine/common": ">=2.4,<2.7-dev",
                 "php": ">=5.3.2"
             },
             "require-dev": {
@@ -442,7 +442,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-09-16 16:29:33"
+            "time": "2016-01-05 22:11:12"
         },
         {
             "name": "doctrine/doctrine-module",
@@ -777,22 +777,22 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.5.2",
+            "version": "v2.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "464b5fdbfbbeb4a65465ac173c4c5d90960f41ff"
+                "reference": "bc4ddbfb0114cb33438cc811c9a740d8aa304aab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/464b5fdbfbbeb4a65465ac173c4c5d90960f41ff",
-                "reference": "464b5fdbfbbeb4a65465ac173c4c5d90960f41ff",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
+                "reference": "bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
                 "shasum": ""
             },
             "require": {
                 "doctrine/cache": "~1.4",
                 "doctrine/collections": "~1.2",
-                "doctrine/common": ">=2.5-dev,<2.6-dev",
+                "doctrine/common": ">=2.5-dev,<2.7-dev",
                 "doctrine/dbal": ">=2.5-dev,<2.6-dev",
                 "doctrine/instantiator": "~1.0.1",
                 "ext-pdo": "*",
@@ -801,7 +801,6 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "dev-master",
                 "symfony/yaml": "~2.3|~3.0"
             },
             "suggest": {
@@ -850,7 +849,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2015-11-23 12:44:25"
+            "time": "2016-01-05 21:34:58"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -994,12 +993,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mathiasverraes/money.git",
-                "reference": "29dd040ecb50b134d6f6bd76f93db00d496637a4"
+                "reference": "658b355ccc7ec6123c3158dcc0280f6b28f7dbfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mathiasverraes/money/zipball/29dd040ecb50b134d6f6bd76f93db00d496637a4",
-                "reference": "29dd040ecb50b134d6f6bd76f93db00d496637a4",
+                "url": "https://api.github.com/repos/mathiasverraes/money/zipball/658b355ccc7ec6123c3158dcc0280f6b28f7dbfa",
+                "reference": "658b355ccc7ec6123c3158dcc0280f6b28f7dbfa",
                 "shasum": ""
             },
             "require": {
@@ -1041,7 +1040,7 @@
                 "Value Object",
                 "money"
             ],
-            "time": "2015-11-18 16:04:24"
+            "time": "2016-01-11 21:10:53"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1394,16 +1393,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.19",
+            "version": "4.8.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4"
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b2caaf8947aba5e002d42126723e9d69795f32b4",
-                "reference": "b2caaf8947aba5e002d42126723e9d69795f32b4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ea76b17bced0500a28098626b84eda12dbcf119c",
+                "reference": "ea76b17bced0500a28098626b84eda12dbcf119c",
                 "shasum": ""
             },
             "require": {
@@ -1462,7 +1461,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-11-30 08:18:59"
+            "time": "2015-12-12 07:45:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1731,28 +1730,28 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.3.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3"
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/863df9687835c62aa423a22412d26fa2ebde3fd3",
-                "reference": "863df9687835c62aa423a22412d26fa2ebde3fd3",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2"
+                "phpunit/phpunit": "~4.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1775,11 +1774,11 @@
                 }
             ],
             "description": "Diff implementation",
-            "homepage": "http://www.github.com/sebastianbergmann/diff",
+            "homepage": "https://github.com/sebastianbergmann/diff",
             "keywords": [
                 "diff"
             ],
-            "time": "2015-02-22 15:13:53"
+            "time": "2015-12-08 07:14:41"
         },
         {
             "name": "sebastian/environment",
@@ -2038,16 +2037,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "175871ca8d1ef16ff8d8cac395a1c73afa8d0e63"
+                "reference": "ebcdc507829df915f4ca23067bd59ee4ef61f6c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/175871ca8d1ef16ff8d8cac395a1c73afa8d0e63",
-                "reference": "175871ca8d1ef16ff8d8cac395a1c73afa8d0e63",
+                "url": "https://api.github.com/repos/symfony/console/zipball/ebcdc507829df915f4ca23067bd59ee4ef61f6c3",
+                "reference": "ebcdc507829df915f4ca23067bd59ee4ef61f6c3",
                 "shasum": ""
             },
             "require": {
@@ -2094,24 +2093,27 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-11-30 12:36:17"
+            "time": "2015-12-22 10:39:06"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "0b6a8940385311a24e060ec1fe35680e17c74497"
+                "reference": "49ff736bd5d41f45240cec77b44967d76e0c3d25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0b6a8940385311a24e060ec1fe35680e17c74497",
-                "reference": "0b6a8940385311a24e060ec1fe35680e17c74497",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/49ff736bd5d41f45240cec77b44967d76e0c3d25",
+                "reference": "49ff736bd5d41f45240cec77b44967d76e0c3d25",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
             },
             "type": "library",
             "extra": {
@@ -2150,20 +2152,20 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-04 20:28:58"
+            "time": "2015-11-20 09:19:13"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "177a015cb0e19ff4a49e0e2e2c5fc1c1bee07002"
+                "reference": "3df409958a646dad2bc5046c3fb671ee24a1a691"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/177a015cb0e19ff4a49e0e2e2c5fc1c1bee07002",
-                "reference": "177a015cb0e19ff4a49e0e2e2c5fc1c1bee07002",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/3df409958a646dad2bc5046c3fb671ee24a1a691",
+                "reference": "3df409958a646dad2bc5046c3fb671ee24a1a691",
                 "shasum": ""
             },
             "require": {
@@ -2199,7 +2201,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-11-30 12:36:17"
+            "time": "2015-12-26 13:39:53"
         },
         {
             "name": "zendframework/zend-authentication",
@@ -3602,20 +3604,20 @@
         },
         {
             "name": "zendframework/zend-math",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-math.git",
-                "reference": "9f02a1ac4d3374d3332c80f9215deec9c71558fc"
+                "reference": "2648ee3cce39aa3876788c837e3b58f198dc8a78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-math/zipball/9f02a1ac4d3374d3332c80f9215deec9c71558fc",
-                "reference": "9f02a1ac4d3374d3332c80f9215deec9c71558fc",
+                "url": "https://api.github.com/repos/zendframework/zend-math/zipball/2648ee3cce39aa3876788c837e3b58f198dc8a78",
+                "reference": "2648ee3cce39aa3876788c837e3b58f198dc8a78",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23"
+                "php": ">=5.5"
             },
             "require-dev": {
                 "fabpot/php-cs-fixer": "1.7.*",
@@ -3650,7 +3652,7 @@
                 "math",
                 "zf2"
             ],
-            "time": "2015-06-03 15:32:02"
+            "time": "2015-12-17 15:31:58"
         },
         {
             "name": "zendframework/zend-memory",
@@ -4537,21 +4539,21 @@
         },
         {
             "name": "zendframework/zend-test",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-test.git",
-                "reference": "da3b3b2a70385c11a382477b18d68cb3f16624ea"
+                "reference": "1d91603556b678b9c7962c1d7c8b74366a95db5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-test/zipball/da3b3b2a70385c11a382477b18d68cb3f16624ea",
-                "reference": "da3b3b2a70385c11a382477b18d68cb3f16624ea",
+                "url": "https://api.github.com/repos/zendframework/zend-test/zipball/1d91603556b678b9c7962c1d7c8b74366a95db5b",
+                "reference": "1d91603556b678b9c7962c1d7c8b74366a95db5b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.23",
-                "phpunit/phpunit": "~4.0",
+                "php": ">=5.5",
+                "phpunit/phpunit": "~4.0|~5.0",
                 "zendframework/zend-console": "~2.5",
                 "zendframework/zend-dom": "~2.5",
                 "zendframework/zend-eventmanager": "~2.5",
@@ -4570,9 +4572,6 @@
                 "zendframework/zend-modulemanager": "~2.5",
                 "zendframework/zend-serializer": "~2.5",
                 "zendframework/zend-session": "~2.5"
-            },
-            "suggest": {
-                "zendframework/zend-console": "Zend\\Console component"
             },
             "type": "library",
             "extra": {
@@ -4595,7 +4594,7 @@
                 "test",
                 "zf2"
             ],
-            "time": "2015-06-03 15:32:03"
+            "time": "2015-12-09 16:17:52"
         },
         {
             "name": "zendframework/zend-text",
@@ -5652,12 +5651,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ghislainf/zf2-whoops.git",
-                "reference": "9235fe04336f25efbb2f5a1355cf510b668a7f58"
+                "reference": "88236c1ca36e5ce5b1bb5b157b85e8e91854b781"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ghislainf/zf2-whoops/zipball/9235fe04336f25efbb2f5a1355cf510b668a7f58",
-                "reference": "9235fe04336f25efbb2f5a1355cf510b668a7f58",
+                "url": "https://api.github.com/repos/ghislainf/zf2-whoops/zipball/88236c1ca36e5ce5b1bb5b157b85e8e91854b781",
+                "reference": "88236c1ca36e5ce5b1bb5b157b85e8e91854b781",
                 "shasum": ""
             },
             "require": {
@@ -5698,7 +5697,7 @@
             ],
             "description": "PHP whoops error on ZF2 framework",
             "homepage": "https://github.com/ghislainf/zf2-whoops",
-            "time": "2015-11-12 14:26:15"
+            "time": "2015-12-23 09:43:02"
         },
         {
             "name": "hounddog/doctrine-data-fixture-module",
@@ -5755,16 +5754,16 @@
         },
         {
             "name": "san/san-session-toolbar",
-            "version": "0.3.0",
+            "version": "0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samsonasik/SanSessionToolbar.git",
-                "reference": "11d2576880575cd19f017798ddfba5d3e640cea1"
+                "reference": "c0f847a6de7910c3d03a603137cb87cee7e082dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samsonasik/SanSessionToolbar/zipball/11d2576880575cd19f017798ddfba5d3e640cea1",
-                "reference": "11d2576880575cd19f017798ddfba5d3e640cea1",
+                "url": "https://api.github.com/repos/samsonasik/SanSessionToolbar/zipball/c0f847a6de7910c3d03a603137cb87cee7e082dd",
+                "reference": "c0f847a6de7910c3d03a603137cb87cee7e082dd",
                 "shasum": ""
             },
             "require": {
@@ -5774,7 +5773,7 @@
             },
             "require-dev": {
                 "phpunit/phpcov": "~2.0",
-                "satooshi/php-coveralls": "dev-master",
+                "satooshi/php-coveralls": "~1.0.0",
                 "zendframework/zend-developer-tools": "dev-master",
                 "zendframework/zend-i18n": "~2.3",
                 "zendframework/zend-log": "~2.3",
@@ -5808,7 +5807,7 @@
                 "session",
                 "zf2"
             ],
-            "time": "2015-12-03 22:10:49"
+            "time": "2016-01-11 07:37:38"
         },
         {
             "name": "snapshotpl/zf-snap-event-debugger",
