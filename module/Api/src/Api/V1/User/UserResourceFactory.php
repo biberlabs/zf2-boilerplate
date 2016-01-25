@@ -11,6 +11,9 @@ class UserResourceFactory
 {
     public function __invoke($sm)
     {
-        return new UserResource($sm->get('core.service.user'));
+        return new UserResource(
+            $sm->get('core.service.user'),
+            $sm->get('search.query.user')
+        );
     }
 }

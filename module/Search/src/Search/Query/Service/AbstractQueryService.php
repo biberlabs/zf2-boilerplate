@@ -12,6 +12,7 @@ namespace Search\Query\Service;
 use Elastica\Query as ElasticaQuery;
 use Elastica\QueryBuilder;
 use Elastica\ResultSet;
+use Search\Exception\SearchingException;
 use Search\Paginator\Adapter\ElasticsearchAdapter;
 use Search\Service\AbstractSearchService;
 use Zend\Paginator\Paginator;
@@ -21,6 +22,27 @@ class AbstractQueryService extends AbstractSearchService
     const VIEW_LIST   = 'list';
     const VIEW_SHORT  = 'short';
     const VIEW_DETAIL = 'detail';
+
+    /**
+     * Getting Elastica Document
+     *
+     * @param  string   $docId
+     *
+     * @throws SearchingException
+     *
+     * @return array
+     */
+    public function getById($docId, $version = 1)
+    {
+        try {
+            return $this->getType($version)
+                        ->getDocument($docId)->getData();
+        } catch (\Elastica\Exception\ResponseException $e) {
+            throw new SearchingException('Throwing exception while getting document!', $e->getCode(), $e);
+        } catch (\Exception $e) {
+            throw new SearchingException('Document not found with ' . $docId, 404, $e);
+        }
+    }
 
     /**
      * Creating a Zend\Paginator\Paginator from Elastica\ResultSet.
