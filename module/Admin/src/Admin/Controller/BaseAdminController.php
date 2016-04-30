@@ -16,6 +16,8 @@ class BaseAdminController extends AbstractActionController
      * On dispatch event.
      *
      * @param  MvcEvent $event
+     *
+     * @return mixed|\Zend\Http\Response
      */
     public function onDispatch(MvcEvent $event)
     {

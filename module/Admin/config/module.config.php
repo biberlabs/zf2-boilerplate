@@ -58,10 +58,12 @@ return array(
     ),
 
     'controllers' => array(
+        'factories' => [
+            'Admin\Controller\Auth'       => 'Admin\Controller\Factory\AuthControllerFactory',
+            'Admin\Controller\Locale'     => 'Admin\Controller\Factory\LocaleControllerFactory',
+        ],
         'invokables' => array(
             'Admin\Controller\Dashboard'  => 'Admin\Controller\DashboardController',
-            'Admin\Controller\Auth'       => 'Admin\Controller\AuthController',
-            'Admin\Controller\Locale'     => 'Admin\Controller\LocaleController',
         ),
     ),
 
