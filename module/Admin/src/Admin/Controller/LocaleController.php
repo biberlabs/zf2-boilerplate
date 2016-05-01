@@ -13,6 +13,15 @@ use Zend\Session\Container;
 
 class LocaleController extends AbstractActionController
 {
+    protected $authService;
+    protected $userService;
+
+    public function __construct($authService, $userService)
+    {
+        $this->authService = $authService;
+        $this->userService = $userService;
+    }
+
     /**
      * Change locale.
      *
@@ -25,14 +34,12 @@ class LocaleController extends AbstractActionController
         $locales   = Locales::getAvailableLocales();
         
         if (array_key_exists($newLocale, $locales)) {
-            $auth = $this->getServiceLocator()->get('core.service.auth');
-            if ($auth->hasIdentity()) {
-                $user = $auth->getIdentity();
-                $this->getServiceLocator()
-                     ->get('core.service.user')
+            if ($this->authService->hasIdentity()) {
+                $user = $this->authService->getIdentity();
+                $this->userService
                      ->changeLocaleByUser($user, $newLocale);
                 $user->setLanguage($newLocale);
-                $auth->getStorage()->write($user);
+                $this->authService->getStorage()->write($user);
             }
 
             $session         = new Container('locale');

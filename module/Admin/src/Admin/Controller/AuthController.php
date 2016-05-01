@@ -12,6 +12,19 @@ use Zend\View\Model\ViewModel;
 
 class AuthController extends BaseAdminController
 {
+    protected $authService;
+    protected $registrationService;
+    protected $adminLoginForm;
+    protected $logger;
+    
+    public function __construct($authService, $registrationService, $adminLoginForm, $logger)
+    {
+        $this->authService = $authService;
+        $this->registrationService = $registrationService;
+        $this->adminLoginForm = $adminLoginForm;
+        $this->logger = $logger;
+    }
+
     /**
      * Login action for backoffice..
      *
@@ -20,27 +33,26 @@ class AuthController extends BaseAdminController
     public function loginAction()
     {
         $view   = new ViewModel();
-        $form   = $this->getServiceLocator()->get('FormElementManager')->get('admin.form.login');
+        $form   = $this->adminLoginForm;
         $failed = null;
 
         if ($this->getRequest()->isPost()) {
             $data = $this->params()->fromPost();
             $form->setData($data);
-            $logger = $this->getServiceLocator()->get('logger');
             if ($form->isValid()) {
                 // Go to service and check credentials
                 $data   = $form->getData();
-                $result = $this->getServiceLocator()->get('core.service.registration')->login($data['email'], $data['password']);
+                $result = $this->registrationService->login($data['email'], $data['password']);
                 if ($result->isValid()) {
                     $session         = new Container('locale');
                     $session->locale = $result->getIdentity()->getLanguage();
-                    
-                    $logger->info('User '.$result->getIdentity()->getNameSurname().' has been logged in to backoffice');
+
+                    $this->logger->info('User '.$result->getIdentity()->getNameSurname().' has been logged in to backoffice');
                     $this->redirect()->toUrl('/');
                 } else {
                     $failed = _('Authentication failed. Please check your credentials.');
                     //$this->flashMessenger()->addErrorMessage($failed);
-                    $logger->info('Login attempt failed.', $data);
+                    $this->logger->info('Login attempt failed.', $data);
                 }
             } else {
                 $this->formErrors($form->getMessages());
@@ -58,12 +70,10 @@ class AuthController extends BaseAdminController
 
     public function logoutAction()
     {
-        $auth = $this->getServiceLocator()->get('core.service.auth');
-
-        if ($auth->hasIdentity()) {
-            $user = $auth->getIdentity();
-            $auth->clearIdentity();
-            $this->getServiceLocator()->get('logger')->info('User '.$user->getNameSurname().' logged out..');
+        if ($this->authService->hasIdentity()) {
+            $user = $this->authService->getIdentity();
+            $this->authService->clearIdentity();
+            $this->logger->info('User '.$user->getNameSurname().' logged out..');
         }
 
         return $this->redirect()->toUrl('/');
