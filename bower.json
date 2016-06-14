@@ -4,7 +4,7 @@
   "authors": [
     "Yılmaz <@edigu>"
   ],
-  "description": "ZF2Boilerplate",
+  "description": "ZF2 Boilerplate",
   "license": "MIT",
   "homepage": "http://www.boilerplate.local",
   "private": true,
@@ -16,7 +16,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~4.0.0",
+    "bootstrap": "v4-dev",
     "jquery": "~2.1.4",
     "font-awesome": "~4.4.0",
     "respond": "~1.4.2",
