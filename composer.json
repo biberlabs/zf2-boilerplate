@@ -10,7 +10,7 @@
     ],
     "homepage": "http://framework.zend.com/",
     "require": {
-        "php": ">=5.5",
+        "php": ">=5.6",
         "zendframework/zendframework": "2.5.3",
         "doctrine/doctrine-orm-module": "0.9.2",
         "imagine/imagine": "0.6.3",
