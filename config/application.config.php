@@ -98,16 +98,16 @@ if (APPLICATION_ENV === 'development') {
 }
 
 // and return the result
-return array(
+return [
     'modules'                 => $modulesToLoad,
-    'module_listener_options' => array(
-        'module_paths'             => array(
+    'module_listener_options' => [
+        'module_paths'             => [
             './module',
             './vendor'
-        ),
-        'config_glob_paths'        => array(
+        ],
+        'config_glob_paths'        => [
             'config/autoload/{,*.}{global,local}.php'
-        ),
+        ],
         'config_cache_enabled'     => $configCache,
         'module_map_cache_enabled' => $moduleCache,
         'cache_dir'                => $cacheDir,
@@ -116,5 +116,5 @@ return array(
         // Enabled by default, prevents usage of modules that depend on other modules
         // that weren't loaded.
         'check_dependencies'       => false,
-    )
-);
+    ]
+];

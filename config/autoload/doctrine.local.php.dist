@@ -2,39 +2,39 @@
 /**
  * Doctrine persistency configuration
  */
-return array(
-    'doctrine' => array(
-        'connection' => array(
-            'orm_default' => array(
+return [
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
                 'driverClass' => 'Doctrine\DBAL\Driver\PDOPgSql\Driver',
-                'params' => array(
+                'params' => [
                     'host'     => '127.0.0.1',
                     'port'     => '5432',
                     'user'     => '@dbuser',
                     'password' => '@dbpass',
                     'dbname' => '@dbname',
-                ),
-            ),
-        ),
+                ],
+            ],
+        ],
 
         // Entity Manager instantiation settings
-        'entitymanager' => array(
-            'orm_default' => array(
+        'entitymanager' => [
+            'orm_default' => [
                 'connection'    => 'orm_default',
                 'configuration' => 'orm_default',
-            ),
-        ),
+            ],
+        ],
 
         // Use array cache locally, also auto generate proxies on local.
-        'configuration' => array(
-            'orm_default' => array(
+        'configuration' => [
+            'orm_default' => [
                 'metadata_cache'   => 'array',
                 'query_cache'      => 'array',
                 'result_cache'     => 'array',
                 'hydration_cache'  => 'array',
                 'generate_proxies' => true,
                 'proxy_dir'        => 'data/DoctrineORMModule/Proxy',
-            ),
-        ),
-    ),
-);
+            ],
+        ],
+    ],
+];

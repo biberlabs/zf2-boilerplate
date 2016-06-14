@@ -3,6 +3,7 @@
  * Abstract form factory for admin module.
  *
  * @since     Jul 2015
+ *
  * @author    M. Yilmaz SUSLU <yilmazsuslu@gmail.com>
  */
 namespace Admin\Form\Factory;
@@ -19,13 +20,14 @@ class AbstractFormFactory implements AbstractFactoryInterface
      * @param ServiceLocatorInterface $fem
      * @param                         $name
      * @param                         $requestedName
+     *
      * @return bool
      */
     public function canCreateServiceWithName(ServiceLocatorInterface $fem, $name, $requestedName)
     {
-        $availableForms = array(
+        $availableForms = [
             'admin.form.login' => true,
-        );
+        ];
 
         return isset($availableForms[$requestedName]);
     }
@@ -36,6 +38,7 @@ class AbstractFormFactory implements AbstractFactoryInterface
      * @param ServiceLocatorInterface $fem
      * @param                         $name
      * @param                         $requestedName
+     *
      * @return mixed
      */
     public function createServiceWithName(ServiceLocatorInterface $fem, $name, $requestedName)

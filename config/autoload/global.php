@@ -11,24 +11,24 @@
  * file.
  */
 
-return array(
-    'doctrine' => array(
-        'authentication' => array(
-            'orm_default' => array(
+return [
+    'doctrine' => [
+        'authentication' => [
+            'orm_default' => [
                 'object_manager'      => 'Doctrine\ORM\EntityManager',
                 'identity_class'      => 'Core\Entity\User',
                 'identity_property'   => 'email',
                 'credential_property' => 'password',
                 'credential_callable' => 'Core\Service\RegistrationService::verifyPassword',
-            ),
-        ),
+            ],
+        ],
         
         // Entity Manager instantiation settings
-        'entitymanager' => array(
-            'orm_default' => array(
+        'entitymanager' => [
+            'orm_default' => [
                 'connection'    => 'orm_default',
                 'configuration' => 'orm_default',
-            ),
-        ),
-    ),
-);
+            ],
+        ],
+    ],
+];
