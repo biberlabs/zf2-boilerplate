@@ -34,6 +34,6 @@
         "hounddog/doctrine-data-fixture-module": "dev-master",
         "san/san-session-toolbar": "0.*",
         "snapshotpl/zf-snap-event-debugger": "dev-master",
-        "phpunit/php-code-coverage": "2.2.4"
+        "phpunit/php-code-coverage": "^4.0"
     }
 }
