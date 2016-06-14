@@ -3,14 +3,18 @@
  * Login form for administration module.
  *
  * @since     Jul 2015
+ *
  * @author    M. Yilmaz SUSLU <yilmazsuslu@gmail.com>
  */
 namespace Admin\Form;
 
+use Zend\Form\Element\Button;
 use Zend\Form\Element\Captcha;
 use Zend\Form\Element\Csrf;
+use Zend\Form\Element\Email;
+use Zend\Form\Element\Password;
 use Zend\InputFilter\InputFilterProviderInterface;
- 
+
 class LoginForm extends BaseForm implements InputFilterProviderInterface
 {
     protected $captchaUrl = null;
@@ -25,7 +29,7 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
     {
         $this->add(array(
             'name'    => 'email',
-            'type'    => 'Email',
+            'type'    => Email::class,
             'options' => array(
                 'label'            => _('Email address'),
                 'placeholder'      => 'Your email address',
@@ -39,7 +43,7 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
  
         $this->add(array(
             'name'    => 'password',
-            'type'    => 'password',
+            'type'    => Password::class,
             'options' => array(
                 'label'  => _('Password'),
             ),
@@ -49,8 +53,8 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
        ));
        
         $this->add(array(
-            'type'    => 'Csrf',
             'name'    => 'csrf',
+            'type'    => Csrf::class,
             'options' => array(
                 'csrf_options' => array(
                     'timeout' => 3600
@@ -60,8 +64,8 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
  
         //add captcha element...
         $this->add(array(
-            'type'    => 'Captcha',
             'name'    => 'captcha',
+            'type'    => Captcha::class,
             'options' => array(
                 'label'            => _('I am not a robot'),
                 'captcha'          => array(
@@ -79,7 +83,7 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
         
         $this->add(array(
             'name'       => 'submit',
-            'type'       => 'button',
+            'type'       => Button::class,
             'attributes' => array(
                 'value' => 'Login',
                 'type'  => 'submit',
