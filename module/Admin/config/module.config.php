@@ -2,129 +2,129 @@
 /**
  * Configuration for admin module
  */
-return array(
+return [
     // ROUTING
-    'router' => array(
-        'routes' => array(
-            // Notice - Automatch is the last-matching route (FILO)
-            'automatch' => array(
+    'router' => [
+        'routes' => [
+            // Notice - Automatch is the last-matching route (FILO]
+            'automatch' => [
                 'type'    => 'Segment',
-                'options' => array(
+                'options' => [
                     'route'       => '/[:controller[/:action[/:id]]]',
-                    'defaults'    => array(
+                    'defaults'    => [
                         '__NAMESPACE__' => 'Admin\Controller',
                         'controller'    => 'Dashboard',
                         'action'        => 'index',
-                    ),
-                    'constraints' => array(
+                    ],
+                    'constraints' => [
                         'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                         'id'         => '[0-9]+',
-                    ),
-                ),
-            ),
+                    ],
+                ],
+            ],
 
-            'auth' => array(
+            'auth' => [
                 'type'    => 'Segment',
-                'options' => array(
+                'options' => [
                     'route'    => '/auth',
-                    'defaults' => array(
+                    'defaults' => [
                         'controller' => 'Admin\Controller\Auth',
-                    ),
-                ),
+                    ],
+                ],
                 'may_terminate' => true,
-                'child_routes'  => array(
-                    'login' => array(
+                'child_routes'  => [
+                    'login' => [
                         'type'    => 'Literal',
-                        'options' => array(
+                        'options' => [
                             'route'    => '/login',
-                            'defaults' => array(
+                            'defaults' => [
                                 'action' => 'login',
-                            ),
-                        ),
-                    ),
-                    'logout' => array(
+                            ],
+                        ],
+                    ],
+                    'logout' => [
                         'type'    => 'Literal',
-                        'options' => array(
+                        'options' => [
                             'route'    => '/logout',
-                            'defaults' => array(
+                            'defaults' => [
                                 'action' => 'logout',
-                            ),
-                        ),
-                    ),
-                ),
-            ),
-        ),
-    ),
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
 
-    'controllers' => array(
+    'controllers' => [
         'factories' => [
             'Admin\Controller\Auth'       => 'Admin\Controller\Factory\AuthControllerFactory',
             'Admin\Controller\Locale'     => 'Admin\Controller\Factory\LocaleControllerFactory',
         ],
-        'invokables' => array(
+        'invokables' => [
             'Admin\Controller\Dashboard'  => 'Admin\Controller\DashboardController',
-        ),
-    ),
+        ],
+    ],
 
-    'service_manager' => array(
-        'factories' => array(
+    'service_manager' => [
+        'factories' => [
             'Zend\Session\SessionManager'         => 'Zend\Session\Service\SessionManagerFactory',
             'Zend\Session\Config\ConfigInterface' => 'Zend\Session\Service\SessionConfigFactory',
-        ),
-        'aliases' => array(
+        ],
+        'aliases' => [
             'session.manager' => 'Zend\Session\SessionManager',
-        ),
-    ),
+        ],
+    ],
 
-    'session_containers' => array(
+    'session_containers' => [
         'user',
         'default',
-    ),
+    ],
 
-    'session_storage' => array(
+    'session_storage' => [
         'type'    => 'SessionArrayStorage',
-        'options' => array(
-        ),
-    ),
+        'options' => [
+        ],
+    ],
 
-    'session_config' => array(
+    'session_config' => [
         'remember_me_seconds' => 2419200,
         'use_cookies'         => true,
         'cookie_httponly'     => true, // Don't editable via JS when true
-    ),
+    ],
 
     // Forms
-    'form_elements'   => array(
-        'abstract_factories' => array(
+    'form_elements'   => [
+        'abstract_factories' => [
             'Admin\Form\Factory\AbstractFormFactory'
-        ),
-    ),
+        ],
+    ],
 
     /**
      * View helper configuration
      */
-    'view_helpers' => array(
-        'invokables' => array(
+    'view_helpers' => [
+        'invokables' => [
             'pageTitle'        => 'Admin\View\Helper\PageTitle',
             'notification'     => 'Admin\View\Helper\Notification',
-        ),
-    ),
+        ],
+    ],
 
-    'view_manager' => array(
+    'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',
         'not_found_template'       => 'error/404',
         'exception_template'       => 'error/index',
-        'template_map'             => array(
+        'template_map'             => [
             'layout/layout'         => __DIR__ . '/../view/layout/admin-layout.phtml',
             'admin/dashboard/index' => __DIR__ . '/../view/admin/dashboard/index.phtml',
             'error/404'             => __DIR__ . '/../view/error/404.phtml',
             'error/index'           => __DIR__ . '/../view/error/index.phtml',
-        ),
-        'template_path_stack' => array(
+        ],
+        'template_path_stack' => [
             __DIR__ . '/../view',
-        ),
-    ),
-);
+        ],
+    ],
+];

@@ -8,6 +8,7 @@
  */
 namespace Admin\Form;
 
+use Zend\Filter\ToNull;
 use Zend\Form\Element\Button;
 use Zend\Form\Element\Captcha;
 use Zend\Form\Element\Csrf;
@@ -27,97 +28,97 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
 
     public function init()
     {
-        $this->add(array(
+        $this->add([
             'name'    => 'email',
             'type'    => Email::class,
-            'options' => array(
-                'label'            => _('Email address'),
-                'placeholder'      => 'Your email address',
-                //'help-block'       => 'Demo user: admin@boilerplate.local',
-            ),
-            'attributes' => array(
+            'options' => [
+                'label'        => _('Email address'),
+                'placeholder'  => 'Your email address',
+                //'help-block' => 'Demo user: admin@boilerplate.local',
+            ],
+            'attributes' => [
                 'id'    => 'email',
                 'class' => 'form-control',
-            ),
-        ));
+            ],
+        ]);
  
-        $this->add(array(
+        $this->add([
             'name'    => 'password',
             'type'    => Password::class,
-            'options' => array(
+            'options' => [
                 'label'  => _('Password'),
             ),
-            'attributes' => array(
+            'attributes' => [
                 'class' => 'form-control',
-            ),
-       ));
+            ],
+       ]);
        
-        $this->add(array(
+        $this->add([
             'name'    => 'csrf',
             'type'    => Csrf::class,
-            'options' => array(
-                'csrf_options' => array(
+            'options' => [
+                'csrf_options' => [
                     'timeout' => 3600
-                )
-            )
-        ));
+                ]
+            ]
+        ]);
  
         //add captcha element...
-        $this->add(array(
+        $this->add([
             'name'    => 'captcha',
             'type'    => Captcha::class,
-            'options' => array(
+            'options' => [
                 'label'            => _('I am not a robot'),
-                'captcha'          => array(
+                'captcha'          => [
                     'class'      => 'Figlet',
                     'wordLen'    => 6,
                     'expiration' => 600,
-                    ),
-                ),
-            'attributes' => array(
+                    ],
+                ],
+            'attributes' => [
                 'class'       => 'form-control',
                 'placeholder' => _('Please type the word above'),
-                ),
-            )
+                ],
+            ]
         );
         
-        $this->add(array(
+        $this->add([
             'name'       => 'submit',
             'type'       => Button::class,
-            'attributes' => array(
+            'attributes' => [
                 'value' => 'Login',
                 'type'  => 'submit',
                 'class' => 'btn btn-primary btn-block'
-            ),
-            'options' => array(
+            ],
+            'options' => [
                 'label'       => _('Login'),
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 
     public function getInputFilterSpecification()
     {
         // The email input already have validators attached by default.
-        return array(
-            'password' => array(
+        return [
+            'password' => [
                 'required'    => true,
                 'allow_empty' => false,
-                'filters'     => array(
-                    array('name' => 'ToNull'),
-                    ),
-                'validators' => array(
-                    array(
+                'filters'     => [
+                    [ 'name' => ToNull::class ],
+                ],
+                'validators' => [
+                    [
                         'name'    => 'StringLength',
-                        'options' => array(
+                        'options' => [
                             'encoding' => 'UTF-8',
                             'min'      => 6,
                             'max'      => 100,
                             'message'  => _('Minimum password length is 6 characters!'),
-                            ),
-                        ),
-                    ),
-                ),
-            );
+                            ],
+                        ],
+                    ],
+                ],
+            ];
     }
 }
