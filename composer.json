@@ -14,7 +14,7 @@
         "zendframework/zendframework": "2.5.3",
         "doctrine/doctrine-orm-module": "0.9.2",
         "imagine/imagine": "0.6.3",
-        "gedmo/doctrine-extensions": "2.4.7",
+        "gedmo/doctrine-extensions": "^2.4",
         "mathiasverraes/money": "v3.0.0-beta",
         "zendframework/zend-i18n-resources": "^2.5",
         "zfcampus/zf-api-problem": "~1.0",
