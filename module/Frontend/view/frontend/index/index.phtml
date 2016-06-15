@@ -1,93 +1,92 @@
-<div class="jumbotron">
+<div class="jumbotron m-t-3">
     <h1><?php echo $this->translate('Welcome to ZF2 Boilerplate') ?></h1>
     <p>
         <?php 
-            echo $this->translate('Congratulations! You have successfully installed the Custom Boilerplate Application.');
+        echo $this->translate('Congratulations! You have successfully installed the Custom Boilerplate Application.');
         ?> 
         <?php
-            echo sprintf($this->translate("You are currently running %sZend Framework%s %s"), 
-                '<strong>', '</strong>', \Zend\Version\Version::VERSION);
-        ?>
-    </p>
-    <p><a class="btn btn-success btn-lg" href="https://github.com/biberlabs/zf2-boilerplate" target="_blank"><?php echo $this->translate('Fork boilerplate on Github') ?> &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-sm-12">
-        <p class="lead">
-            Boilerplate is an enhanced skeleton application, serve as a simple starting point for you to begin building your application based on ZF2 while utilizing modern tools and libraries like Bower, Bootstrap 3 and Grunt.
+        echo sprintf($this->translate("You are currently running %sZend Framework%s %s"), 
+            '<strong>', '</strong>', \Zend\Version\Version::VERSION);
+            ?>
         </p>
+        <p><a class="btn btn-success btn-lg" href="https://github.com/biberlabs/zf2-boilerplate" target="_blank"><?php echo $this->translate('Fork boilerplate on Github') ?> &raquo;</a></p>
     </div>
-</div>
 
-<div class="row">
+    <div class="row">
+        <div class="col-sm-12">
+            <p class="lead">
+                Boilerplate is an enhanced skeleton application, serve as a simple starting point for you to begin building your application based on ZF2 while utilizing modern tools and libraries like Bower, Bootstrap 3 and Grunt.
+            </p>
+        </div>
+    </div>
 
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $this->translate('3rd Party Modules: PRODUCTION') ?></h3>
-            </div>
-            <div class="panel-body">
-                <p><?php 
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title"><?php echo $this->translate('3rd party modules') ?></h4>
+                <hr>
+                <p class="card-text">
+                    <?php 
                     echo $this->translate('The modules and libraries below are default 3rd party dependencies to improve capablities of the Boilerplate application');
-                    ?>
+                    ?>.
                 </p>
                 <ul>
-                    <li><a href="https://github.com/doctrine/DoctrineORMModule">DoctrineORMModule</a> integrates Doctrine 2 ORM with Zend Framework 2 quickly and easily.</li>
-                    <li><a href="https://github.com/Atlantic18/DoctrineExtensions">Doctrine Extensions</a> to extend entity behaviours of Doctrine 2.</li>
-                    <li><a href="https://github.com/avalanche123/Imagine">Imagine</a> for various image processing requirements such creating thumbnails.</li>
-                    <li><a href="https://github.com/mathiasverraes/money">Money</a> fowler's money implementation.</li>
-                    <li><a href="https://github.com/sebastianbergmann/php-code-coverage">Php Code Coverage</a> for combined test reports while running tests in parallel.</li>                    
+                    <li>
+                        <a href="https://github.com/doctrine/DoctrineORMModule">DoctrineORMModule</a> integrates Doctrine 2 ORM with Zend Framework 2 quickly and easily.
+                    </li>
+                    <li>
+                        <a href="https://github.com/Atlantic18/DoctrineExtensions">Doctrine Extensions</a> to extend entity behaviours of Doctrine 2.
+                    </li>
+                    <li>
+                        <a href="https://github.com/avalanche123/Imagine">Imagine</a> for various image processing requirements such creating thumbnails.
+                    </li>
+                    <li>
+                        <a href="https://github.com/mathiasverraes/money">Money</a> for Fowler's money implementation.
+                    </li>
+                    <li>
+                        <a href="https://github.com/sebastianbergmann/php-code-coverage">Php Code Coverage</a> for combined test reports while running tests in parallel.
+                    </li>                    
                 </ul>
             </div>
         </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $this->translate('3rd Party Modules: DEVELOPMENT') ?></h3>
-            </div>
-            <div class="panel-body">
-                <p><?php 
-                    echo sprintf($this->translate('Development related modules are here. These modules loaded only when you set the %s environment value to %s in yor HTTP server'),
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title"><?php echo $this->translate('Productive development') ?></h4>
+                <hr>
+                <p class="card-text">
+                    <?php 
+                    echo sprintf($this->translate('Development related modules are here. These modules loaded only when you set the %s environment value to %s in HTTP server'),
                         '<code>APPLICATION_ENV</code>', '<code>development</code>');
-                    ?>
-                </p>
-                <ul>
-                    <li>
-                        <a href="https://github.com/ghislainf/zf2-whoops">Zf2Whoops</a> - PHP errors for cool kids.
-                    </li>
-                    <li>
-                        <a href="https://github.com/zendframework/ZendDeveloperTools">ZendDeveloperTools</a> Official development toolbar for ZF2
-                    </li>
-                    <li>
-                        <a href="https://github.com/Hounddog/DoctrineDataFixtureModule">DoctrineDataFixtureModule</a> to easily populate the database tables with some dummy stuff for development purposes.
-                    </li>
-                    <li>
-                        <a href="https://github.com/snapshotpl/ZfSnapEventDebugger">ZfSnapEventDebugger</a> is an extension for Zend Developer Toolbar for event debugging.
-                    </li>
-                    <li>
-                        <a href="https://github.com/samsonasik/SanSessionToolbar">SanSessionToolbar</a> another Zend Developer toolbar extension which shows you the all session data you've been using in.
-                    </li>
-
-                    
-
-                </ul>
+                        ?>
+                    </p>
+                    <ul>
+                        <li>
+                            <a href="https://github.com/ghislainf/zf2-whoops">Zf2Whoops</a> - PHP errors for cool kids.
+                        </li>
+                        <li>
+                            <a href="https://github.com/zendframework/ZendDeveloperTools">ZendDeveloperTools</a> Official development toolbar for ZF2
+                        </li>
+                        <li>
+                            <a href="https://github.com/Hounddog/DoctrineDataFixtureModule">DoctrineDataFixtureModule</a> to easily populate the database tables with some dummy stuff for development purposes.
+                        </li>
+                        <li>
+                            <a href="https://github.com/snapshotpl/ZfSnapEventDebugger">ZfSnapEventDebugger</a> is an extension for Zend Developer Toolbar for event debugging.
+                        </li>
+                        <li>
+                            <a href="https://github.com/samsonasik/SanSessionToolbar">SanSessionToolbar</a> another Zend Developer toolbar extension which shows you the all session data you've been using in.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title"><?php echo $this->translate('Help &amp; Support') ?></h4>
+                    <hr>
+                    <p class="card-text">
+                        <?php
+                        echo sprintf($this->translate('If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We\'d love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s.'), '<a href="irc://irc.freenode.net/zftalk">', '</a>', '<a href="http://framework.zend.com/wiki/display/ZFDEV/Mailing+Lists">', '</a>') ?>
+                    </p>
+                    <a class="btn btn-success" href="http://webchat.freenode.net?channels=zftalk" target="_blank"><?php echo $this->translate('Ping us on IRC') ?> &raquo;</a>
+                </div>
             </div>
         </div>
-    </div>
-
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $this->translate('Help &amp; Support') ?></h3>
-            </div>
-            <div class="panel-body">
-                <p><?php echo sprintf($this->translate('If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We\'d love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s.'), '<a href="irc://irc.freenode.net/zftalk">', '</a>', '<a href="http://framework.zend.com/wiki/display/ZFDEV/Mailing+Lists">', '</a>') ?></p>
-                <p><a class="btn btn-success pull-right" href="http://webchat.freenode.net?channels=zftalk" target="_blank"><?php echo $this->translate('Ping us on IRC') ?> &raquo;</a></p>
-            </div>
-        </div>
-    </div>
-</div>
