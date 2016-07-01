@@ -1,0 +1,16 @@
+nginx:
+  build: data/docker/lamp
+  links:
+    - mysql
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./:/var/www/
+    - ./data/docker/sites/:/etc/nginx/conf.d
+mysql:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    MYSQL_ROOT_PASSWORD: password
