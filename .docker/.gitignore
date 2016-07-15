@@ -1,0 +1,2 @@
+volumes/redis/*
+volumes/mysql/*
