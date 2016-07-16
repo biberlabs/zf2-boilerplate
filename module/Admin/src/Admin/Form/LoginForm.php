@@ -47,7 +47,7 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
             'type'    => Password::class,
             'options' => [
                 'label'  => _('Password'),
-            ),
+            ],
             'attributes' => [
                 'class' => 'form-control',
             ],
@@ -92,9 +92,8 @@ class LoginForm extends BaseForm implements InputFilterProviderInterface
             ],
             'options' => [
                 'label'       => _('Login'),
-                ]
             ]
-        ];
+        ]);
     }
 
     public function getInputFilterSpecification()
