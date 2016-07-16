@@ -36,8 +36,8 @@ class RegistrationService extends AbstractService implements ObjectManagerAwareI
     {
         $adapter = $this->authService->getAdapter();
 
-        $adapter->setIdentityValue($email);
-        $adapter->setCredentialValue($password);
+        $adapter->setIdentity($email);
+        $adapter->setCredential($password);
         
         $authResult = $this->authService->authenticate();
 
