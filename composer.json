@@ -32,7 +32,7 @@
         "zendframework/zend-developer-tools": "dev-master",
         "zendframework/zftool": "dev-master",
         "hounddog/doctrine-data-fixture-module": "dev-master",
-        "san/san-session-toolbar": "0.*",
+        "san/san-session-toolbar": "^0.6 | ^1.0",
         "snapshotpl/zf-snap-event-debugger": "dev-master",
         "phpunit/php-code-coverage": "^4.0"
     }
