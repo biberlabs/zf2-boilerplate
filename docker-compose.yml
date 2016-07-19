@@ -57,7 +57,7 @@ services:
             - volumes_source
         tty: true
 
-### Laravel Application Code Container ######################
+### ZF2 Application Code Container ######################
     volumes_source:
         build: ./.docker/volumes/application
         volumes:
